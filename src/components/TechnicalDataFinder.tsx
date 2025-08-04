@@ -23,9 +23,8 @@ export default function TechnicalDataFinder() {
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className='text-center mb-12'>
           <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>
             Buscador de <span className='text-qp-green'>fichas técnicas</span>
@@ -39,9 +38,8 @@ export default function TechnicalDataFinder() {
         {/* Search Filters */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
           className='bg-gray-50 rounded-2xl p-8 mb-12'>
           <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 items-end'>
             {/* Category Filter */}

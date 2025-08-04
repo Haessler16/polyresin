@@ -1,5 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import {
   Package,
   Footprints,
@@ -21,13 +22,12 @@ const iconMap = {
 
 export default function BusinessLines() {
   return (
-    <section className='py-16 lg:py-24 bg-white'>
+    <section className='py-16 lg:py-12 bg-white'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className='text-center mb-16'>
           <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>
             Líneas de <span className='text-qp-green'>negocio</span>
@@ -47,7 +47,7 @@ export default function BusinessLines() {
                 key={line.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{
                   scale: 1.05,
@@ -101,9 +101,11 @@ export default function BusinessLines() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className='text-center mt-12'>
-          <button className='bg-qp-green text-white px-8 py-3 rounded-full font-medium hover:bg-qp-green-dark transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'>
-            Navegar por las fichas técnicas de nuestros productos
-          </button>
+          <Link href='/productos'>
+            <button className='bg-qp-green text-white px-8 py-3 rounded-full font-medium hover:bg-qp-green-dark transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'>
+              Navegar por las fichas técnicas de nuestros productos
+            </button>
+          </Link>
         </motion.div>
       </div>
     </section>
