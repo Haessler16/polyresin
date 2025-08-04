@@ -63,24 +63,25 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className='relative'>
-            <div className='relative overflow-hidden rounded-2xl shadow-2xl'>
+            <div className='relative overflow-hidden rounded-2xl shadow-2x'>
               <div className='aspect-w-16 aspect-h-12 bg-gradient-to-br from-qp-green to-qp-green-dark'>
                 {/* Placeholder para imagen industrial */}
-                <div className='flex items-center justify-center text-white'>
+                <div className='flex items-center justify-center text-black'>
                   <div className='text-center'>
-                    <Factory size={64} className='mx-auto mb-4 opacity-80' />
+                    <img src='/fabrica.png' alt='fabrica' />
+                    {/* <Factory size={64} className='mx-auto mb-4 opacity-80' />
                     <p className='text-lg font-medium'>Planta Industrial QP</p>
                     <p className='text-sm opacity-80'>
                       Desde 1975 proporcionando soluciones químicas
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
 
               {/* Overlay decorativo */}
-              <div className='absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-lg p-3'>
-                <p className='text-white text-sm font-medium'>Desde 1975</p>
-                <p className='text-white/80 text-xs'>
+              <div className='absolute top-4 right-4 bg-white/30 backdrop-blur-sm rounded-lg p-3'>
+                <p className='text-black text-sm font-medium'>Desde 1975</p>
+                <p className='text-black/80 text-xs'>
                   proporcionando soluciones químicas
                 </p>
               </div>

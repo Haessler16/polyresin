@@ -8,6 +8,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
       colors: {
         'qp-green': '#22c55e',
         'qp-green-dark': '#16a34a',
@@ -37,5 +42,19 @@ const config: Config = {
     },
   },
   plugins: [],
+  safelist: [
+    'from-blue-400',
+    'to-blue-600',
+    'from-green-400',
+    'to-green-600',
+    'from-gray-400',
+    'to-gray-600',
+    'from-red-400',
+    'to-red-600',
+    'from-purple-400',
+    'to-purple-600',
+    'from-orange-400',
+    'to-orange-600',
+  ],
 }
 export default config

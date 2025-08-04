@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   description:
     'Químicas Polyresin C.A, fundada en 1975, líder en fabricación de resinas sintéticas y productos químicos auxiliares para mercados nacional e internacional.',
   keywords: 'resinas, poliéster, poliuretano, químicos, Venezuela, industria',
+  icons: {
+    icon: '/logo.jpeg',
+  },
 }
 
 export default function RootLayout({
