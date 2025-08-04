@@ -90,8 +90,8 @@ export default function ContactForm() {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}>
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2 }}>
             <form
               onSubmit={handleSubmit}
               className='bg-white rounded-2xl shadow-lg p-8'>
@@ -248,8 +248,8 @@ export default function ContactForm() {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className='space-y-8'>
             {/* Offices */}
             <div className='bg-white rounded-2xl shadow-lg p-8'>

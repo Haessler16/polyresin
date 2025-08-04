@@ -40,7 +40,7 @@ export default function TechnicalDataFinder() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className='bg-gray-50 rounded-2xl p-8 mb-12'>
           <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 items-end'>
@@ -53,7 +53,7 @@ export default function TechnicalDataFinder() {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-qp-green focus:border-transparent transition-all duration-200'>
+                className='w-full px-4 py-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-qp-green focus:border-transparent transition-all duration-200'>
                 {categories.map((category) => (
                   <option key={category} value={category}>
                     {category}
@@ -70,7 +70,7 @@ export default function TechnicalDataFinder() {
               <select
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value)}
-                className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-qp-green focus:border-transparent transition-all duration-200'>
+                className='w-full px-4 py-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-qp-green focus:border-transparent transition-all duration-200'>
                 {types.map((type) => (
                   <option key={type} value={type}>
                     {type}
@@ -87,7 +87,7 @@ export default function TechnicalDataFinder() {
               <select
                 value={selectedEngine}
                 onChange={(e) => setSelectedEngine(e.target.value)}
-                className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-qp-green focus:border-transparent transition-all duration-200'>
+                className='w-full px-4 py-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-qp-green focus:border-transparent transition-all duration-200'>
                 {engines.map((engine) => (
                   <option key={engine} value={engine}>
                     {engine}
