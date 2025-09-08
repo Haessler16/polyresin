@@ -34,10 +34,10 @@ export default function Navbar() {
         scrolled ? 'bg-white shadow-lg backdrop-blur-sm' : 'bg-white/95'
       }`}>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='flex justify-between items-center h-16'>
+        <div className='flex justify-between items-center'>
           {/* Logo */}
           <Link href='/' className='flex items-center space-x-2'>
-            <Image src={img} alt='empresa con su nombre' width={80} />
+            <Image src={img} alt='empresa con su nombre' width={140} />
             {/* <div className='w-10 h-10 bg-qp-green rounded-lg flex items-center justify-center'>
               <span className='text-white font-bold text-xl'>QP</span>
             </div>
@@ -53,7 +53,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-gray-700 hover:text-qp-green px-3 py-2 text-sm font-medium transition-colors duration-200 relative group ${
+                className={`text-gray-700 hover:text-qp-green px-3 py-2 text-base font-medium transition-colors duration-200 relative group ${
                   pathname === item.href ? 'text-qp-green' : ''
                 }`}>
                 {item.name}
