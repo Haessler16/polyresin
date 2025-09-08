@@ -1,9 +1,11 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import img from '../../public/logo.jpg'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -35,13 +37,14 @@ export default function Navbar() {
         <div className='flex justify-between items-center h-16'>
           {/* Logo */}
           <Link href='/' className='flex items-center space-x-2'>
-            <div className='w-10 h-10 bg-qp-green rounded-lg flex items-center justify-center'>
+            <Image src={img} alt='empresa con su nombre' width={80} />
+            {/* <div className='w-10 h-10 bg-qp-green rounded-lg flex items-center justify-center'>
               <span className='text-white font-bold text-xl'>QP</span>
             </div>
             <div className='hidden sm:block'>
               <div className='text-lg font-bold text-gray-900'>QUÍMICAS</div>
               <div className='text-xs text-gray-600 -mt-1'>POLYRESIN</div>
-            </div>
+            </div> */}
           </Link>
 
           {/* Desktop Navigation */}
