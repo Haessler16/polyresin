@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function ProductsPage() {
   return (
-    <div className='pt-16'>
+    <div className='pt-[6.5rem]'>
       <TechnicalDataFinder />
     </div>
   )
