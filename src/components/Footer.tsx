@@ -5,29 +5,35 @@ import { motion } from 'framer-motion'
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
-  const certifications = [
-    'ISO9001',
-    'ASTM',
-    'INAQL',
-    'Autoluk',
-    'Marca 2',
-    'Marca 3',
-  ]
-
   return (
     <footer className='bg-gray-900 text-white'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
-        <div className='grid grid-cols-1 md:grid-cols-4 gap-8'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
           {/* Company Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className='col-span-1 md:col-span-2'>
-            <div className='flex items-center space-x-2 mb-4'>
-              <div className='w-10 h-10 bg-qp-green rounded-lg flex items-center justify-center'>
-                <span className='text-white font-bold text-xl'>QP</span>
+            className='col-span-1 md:col-span-1'>
+            <div className='flex items-center space-x-3 mb-6'>
+              {/* Logo real - placeholder por ahora */}
+              <div className='w-12 h-12 bg-white rounded-lg flex items-center justify-center p-2'>
+                <img
+                  src='/logo.jpg'
+                  alt='Químicas Polyresin Logo'
+                  className='w-full h-full object-contain'
+                  // onError={(e) => {
+                  //   // Fallback al logo actual si no encuentra la imagen
+                  //   e.currentTarget.style.display = 'none';
+                  //   e.currentTarget.nextElementSibling.style.display = 'flex';
+                  // }}
+                />
+                <div
+                  style={{ display: 'none' }}
+                  className='w-full h-full bg-qp-green rounded flex items-center justify-center'>
+                  <span className='text-white font-bold text-lg'>QP</span>
+                </div>
               </div>
               <div>
                 <div className='text-lg font-bold'>QUÍMICAS POLYRESIN</div>
@@ -36,25 +42,9 @@ export default function Footer() {
             </div>
             <p className='text-gray-300 mb-6 leading-relaxed'>
               Desde 1975 liderando la fabricación de resinas sintéticas y
-              productos químicos auxiliares para los mercados nacional e
+              productos químicos auxiliares para el mercado nacional e
               internacional.
             </p>
-
-            {/* Certifications */}
-            <div>
-              <h4 className='text-sm font-semibold text-gray-200 mb-3'>
-                Certificaciones
-              </h4>
-              <div className='flex flex-wrap gap-2'>
-                {certifications.map((cert, index) => (
-                  <span
-                    key={cert}
-                    className='bg-gray-800 px-3 py-1 rounded-full text-xs text-gray-300 border border-gray-700'>
-                    {cert}
-                  </span>
-                ))}
-              </div>
-            </div>
           </motion.div>
 
           {/* Quick Links */}
@@ -89,36 +79,19 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Legal */}
+          {/* Dirección */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}>
-            <h3 className='text-lg font-semibold mb-4'>Legal</h3>
-            <ul className='space-y-2'>
-              <li>
-                <a
-                  href='#'
-                  className='text-gray-300 hover:text-qp-green transition-colors duration-200'>
-                  Dirección
-                </a>
-              </li>
-              <li>
-                <a
-                  href='#'
-                  className='text-gray-300 hover:text-qp-green transition-colors duration-200'>
-                  Responsabilidad
-                </a>
-              </li>
-              <li>
-                <a
-                  href='#'
-                  className='text-gray-300 hover:text-qp-green transition-colors duration-200'>
-                  Temas legales
-                </a>
-              </li>
-            </ul>
+            <h3 className='text-lg font-semibold mb-4'>Dirección</h3>
+            <div className='text-gray-300 leading-relaxed text-sm'>
+              <p>Prolongación Av. Bolívar, Sector el Cerrito,</p>
+              <p>a 800 mts del Terminal de Pasajeros,</p>
+              <p>Vía Rangel, Ocumare del Tuy,</p>
+              <p>Zona Postal 1209, Estado Miranda</p>
+            </div>
           </motion.div>
         </div>
 

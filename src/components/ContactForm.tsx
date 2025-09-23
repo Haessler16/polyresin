@@ -255,24 +255,26 @@ export default function ContactForm() {
             <div className='bg-white rounded-2xl shadow-lg p-8'>
               <h3 className='text-xl font-semibold text-gray-900 mb-6 flex items-center'>
                 <Building2 className='mr-3 text-qp-green' size={24} />
-                Oficinas
+                Estamos ubicados en:
               </h3>
 
               <div className='space-y-6'>
                 <div>
-                  <h4 className='font-medium text-gray-900 mb-2'>
+                  {/* <h4 className='font-medium text-gray-900 mb-2'>
                     Corporativo:
-                  </h4>
+                  </h4> */}
                   <p className='text-gray-600 flex items-start'>
                     <MapPin
                       className='mr-2 text-qp-green mt-1 flex-shrink-0'
                       size={16}
                     />
-                    Centro Letonia, Caracas
+                    Prolongación Av. Bolívar, Sector el Cerrito, a 800 mts del
+                    Terminal de Pasajeros, Vía Rangel, Ocumare del Tuy, Zona
+                    Postal 1209, Estado Miranda
                   </p>
                 </div>
 
-                <div>
+                {/* <div>
                   <h4 className='font-medium text-gray-900 mb-2'>Planta:</h4>
                   <p className='text-gray-600 flex items-start'>
                     <Factory
@@ -281,7 +283,7 @@ export default function ContactForm() {
                     />
                     Ocumare del Tuy
                   </p>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -310,17 +312,17 @@ export default function ContactForm() {
             </div>
 
             {/* Products Showcase */}
-            <div className='bg-gradient-to-br from-qp-green to-qp-green-dark rounded-2xl shadow-lg p-8 text-white'>
-              <h3 className='text-xl font-semibold mb-4'>
+            {/* <div className='bg-gradient-to-br from-qp-green to-qp-green-dark rounded-2xl shadow-lg p-8 text-white'> */}
+            {/* <h3 className='text-xl font-semibold mb-4'>
                 Brindamos a nuestros clientes
               </h3>
               <p className='text-white/90 mb-6'>
                 Productos químicos de la más alta calidad con certificaciones
                 internacionales
-              </p>
+              </p> */}
 
-              {/* Product boxes visualization */}
-              <div className='grid grid-cols-3 gap-3'>
+            {/* Product boxes visualization */}
+            {/* <div className='grid grid-cols-3 gap-3'>
                 {Array.from({ length: 6 }).map((_, i) => (
                   <div
                     key={i}
@@ -331,8 +333,8 @@ export default function ContactForm() {
                     <div className='text-xs opacity-80'>Producto {i + 1}</div>
                   </div>
                 ))}
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
           </motion.div>
         </div>
       </div>

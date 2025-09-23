@@ -1,26 +1,116 @@
 'use client'
+// import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import Slider, { Settings as SettingsSlick } from 'react-slick'
 import Link from 'next/link'
 import {
   Package,
   Footprints,
-  Wrench,
   Settings,
   FlaskConical,
   Paintbrush,
+  ArrowLeft,
+  ArrowRight,
 } from 'lucide-react'
 import { businessLines } from '@/lib/data'
 
 const iconMap = {
   bottle: Package,
   footprints: Footprints,
-  pipe: Wrench,
   settings: Settings,
   'flask-conical': FlaskConical,
   paintbrush: Paintbrush,
 }
 
 export default function BusinessLines() {
+  interface ArrowProps {
+    className?: string
+    style?: React.CSSProperties
+    onClick?: React.MouseEventHandler<SVGSVGElement>
+  }
+
+  function NextArrow(props: ArrowProps) {
+    const { className, style, onClick } = props
+    return (
+      <ArrowRight
+        size={30}
+        className={className}
+        style={{
+          ...style,
+          display: 'block',
+          background: '#1aa737',
+          borderRadius: '50%',
+          padding: '2px',
+          color: 'white',
+          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+          marginRight: '10px',
+        }}
+        onClick={onClick}
+      />
+    )
+  }
+
+  function PrevArrow(props: ArrowProps) {
+    const { className, style, onClick } = props
+    return (
+      <ArrowLeft
+        size={30}
+        className={className}
+        style={{
+          ...style,
+          display: 'block',
+          background: '#1aa737',
+          borderRadius: '50%',
+          padding: '2px',
+          color: 'white',
+          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+          marginLeft: '10px',
+        }}
+        onClick={onClick}
+      />
+    )
+  }
+  const settings: SettingsSlick = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    cssEase: 'ease-in-out',
+    centerPadding: '60px',
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
+
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  }
+
   return (
     <section className='py-16 lg:py-12 bg-white'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -38,7 +128,8 @@ export default function BusinessLines() {
           </p>
         </motion.div>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+        {/* Carousel Container */}
+        <Slider {...settings}>
           {businessLines.map((line, index) => {
             const Icon = iconMap[line.icon as keyof typeof iconMap]
 
@@ -53,7 +144,7 @@ export default function BusinessLines() {
                   scale: 1.05,
                   transition: { duration: 0.2 },
                 }}
-                className='group'>
+                className='group px-4'>
                 <div className='relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 overflow-hidden'>
                   {/* Background gradient */}
                   <div
@@ -92,7 +183,7 @@ export default function BusinessLines() {
               </motion.div>
             )
           })}
-        </div>
+        </Slider>
 
         {/* CTA Button */}
         <motion.div
@@ -100,7 +191,7 @@ export default function BusinessLines() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className='text-center mt-12'>
+          className='text-center mt-16'>
           <Link href='/productos'>
             <button className='bg-qp-green text-white px-8 py-3 rounded-full font-medium hover:bg-qp-green-dark transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'>
               Navegar por las fichas técnicas de nuestros productos

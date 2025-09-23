@@ -18,14 +18,17 @@ export interface Product {
 export interface TechnicalProduct {
   id: number
   name: string
+  code: string
   category: string
   type: string
   application: string
+  pdfFile: string
+  badges: string[]
   image?: string
   description: string
 }
 
-// Datos de filtros organizados jerárquicamente
+// Datos de filtros organizados jerárquicamente basados en el Excel
 export const filterData = {
   'CEMENTOS DE CONTACTO': {
     POLICLOROPRENO: [
@@ -34,7 +37,7 @@ export const filterData = {
       'TAPICERIA & ESPUMA',
       'CALZADO',
     ],
-    'CAUCHO NATURAL': ['UNIVERSAL / MULTIUSO'],
+    'CAUCHO NATURAL': [],
     'POLIURETANO REACTIVABLE': [],
   },
   'RESINAS DE POLIESTER': {
@@ -83,6 +86,7 @@ export type Applications<
   S extends Subcategory<C>,
 > = (typeof filterData)[C][S][never]
 
+// Líneas de negocio actualizadas - eliminando "Soldaduras de PVC" (son parte de Productos auxiliares)
 export const businessLines: BusinessLine[] = [
   {
     id: 1,
@@ -101,27 +105,20 @@ export const businessLines: BusinessLine[] = [
   },
   {
     id: 3,
-    title: 'Soldaduras de PVC',
-    icon: 'pipe',
-    description: 'Soluciones especializadas para unión de tuberías',
-    color: 'from-gray-400 to-gray-600',
-  },
-  {
-    id: 4,
     title: 'Automotriz',
     icon: 'settings',
     description: 'Productos especializados para la industria automotriz',
     color: 'from-red-400 to-red-600',
   },
   {
-    id: 5,
-    title: 'Productos químicos auxiliares',
+    id: 4,
+    title: 'Productos auxiliares',
     icon: 'flask-conical',
     description: 'Auxiliares químicos para optimizar procesos industriales',
     color: 'from-purple-400 to-purple-600',
   },
   {
-    id: 6,
+    id: 5,
     title: 'Cementos de contacto',
     icon: 'paintbrush',
     description: 'Adhesivos de contacto para múltiples aplicaciones',
@@ -148,14 +145,6 @@ export const carouselProducts: Product[] = [
   },
   {
     id: 3,
-    name: 'Soldaduras de PVC',
-    category: 'Adhesivos',
-    type: 'PVC',
-    image: '/images/soldaduras-pvc.jpg',
-    description: 'Soldaduras líquidas para unión permanente',
-  },
-  {
-    id: 4,
     name: 'Automotriz',
     category: 'Automotriz',
     type: 'Industrial',
@@ -163,7 +152,7 @@ export const carouselProducts: Product[] = [
     description: 'Productos especializados para el sector automotriz',
   },
   {
-    id: 5,
+    id: 4,
     name: 'Barnices y lacas',
     category: 'Recubrimientos',
     type: 'Madera',
@@ -171,7 +160,7 @@ export const carouselProducts: Product[] = [
     description: 'Protección y acabado para superficies de madera',
   },
   {
-    id: 6,
+    id: 5,
     name: 'Cementos de contacto',
     category: 'Adhesivos',
     type: 'Contacto',
@@ -180,319 +169,811 @@ export const carouselProducts: Product[] = [
   },
 ]
 
+// Productos técnicos actualizados con datos reales del Excel
 export const technicalProducts: TechnicalProduct[] = [
-  // Cementos de Contacto
+  // CEMENTOS DE CONTACTO - POLICLOROPRENO
   {
     id: 1,
-    name: 'Cemento de Contacto Policloropreno Universal',
+    name: 'DURATEK D10',
+    code: 'D10',
     category: 'CEMENTOS DE CONTACTO',
     type: 'POLICLOROPRENO',
     application: 'UNIVERSAL / MULTIUSO',
-    description: 'Adhesivo de contacto de alta resistencia para uso general',
+    pdfFile:
+      'duratek-d10-adhesivo-policloropreno-universal-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Adhesivo de policloropreno universal; alto agarre inicial y secado rápido para muebles y reparaciones.',
   },
   {
     id: 2,
-    name: 'Cemento Caucho Natural Universal',
+    name: 'DURATEK S-350',
+    code: 'S-350',
     category: 'CEMENTOS DE CONTACTO',
-    type: 'CAUCHO NATURAL',
+    type: 'POLICLOROPRENO',
     application: 'UNIVERSAL / MULTIUSO',
-    description: 'Adhesivo base caucho natural para aplicaciones diversas',
+    pdfFile:
+      'duratek-S-350-adhesivo-policloropreno-universal-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Adhesivo de policloropreno multiuso; amplio margen de tiempo para posicionar y alinear las piezas antes de unirlas, con gran versatilidad de sustratos.',
   },
   {
     id: 3,
-    name: 'Cemento PU Reactivo para Laminados',
+    name: 'DURATEK D20',
+    code: 'D20',
     category: 'CEMENTOS DE CONTACTO',
     type: 'POLICLOROPRENO',
     application: 'LAMINADOS & MDF',
-    description: 'Adhesivo poliuretano especializado para laminados y MDF',
+    pdfFile:
+      'duratek-d20-adhesivo-policloropreno-universal-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Adhesivo de policloropreno para laminados/MDF; mayor tiempo abierto para alineación precisa.',
   },
   {
     id: 4,
-    name: 'Cemento PU Reactivo Tapicería',
+    name: 'DURATEK D30',
+    code: 'D30',
     category: 'CEMENTOS DE CONTACTO',
     type: 'POLICLOROPRENO',
-    application: 'TAPICERIA & ESPUMA',
-    description: 'Adhesivo flexible para tapicería y espumas',
+    application: 'LAMINADOS & MDF',
+    pdfFile:
+      'duratek-d30-adhesivo-policloropreno-universal-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Adhesivo de policloropreno alta viscosidad; mejor resistencia térmica en carpintería pesada.',
   },
   {
     id: 5,
-    name: 'Cemento PU Reactivo Calzado',
+    name: 'DURATEK SPRAY HS',
+    code: 'SPRAY HS',
     category: 'CEMENTOS DE CONTACTO',
     type: 'POLICLOROPRENO',
-    application: 'CALZADO',
-    description: 'Adhesivo especializado para la industria del calzado',
+    application: 'LAMINADOS & MDF',
+    pdfFile:
+      'duratek-spray-hs-adhesivo-policloropreno-spray-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Adhesivo de policloropreno para aplicación a pistola; cobertura uniforme y productividad.',
   },
-  {
-    id: 555,
-    name: 'Cemento de Contacto Policloropreno Reactivo',
-    category: 'CEMENTOS DE CONTACTO',
-    type: 'POLIURETANO REACTIVABLE',
-    application: '',
-    description: 'Adhesivo poliuretano especializado',
-  },
-
-  // Resinas de Poliéster
   {
     id: 6,
-    name: 'Resina Tereftálica Premium',
-    category: 'RESINAS DE POLIESTER',
-    type: 'TEREFTALICA',
-    application: '',
+    name: 'DURATEK S-1200',
+    code: 'S-1200',
+    category: 'CEMENTOS DE CONTACTO',
+    type: 'POLICLOROPRENO',
+    application: 'LAMINADOS & MDF',
+    pdfFile:
+      'duratek-s-1200-adhesivo-policloropreno-solidos-altos-ficha-tecnica-es-ve',
+    badges: [],
     description:
-      'Resina tereftálica de alta calidad para aplicaciones exigentes',
+      'Adhesivo de policloropreno de sólidos altos; amplio tiempo abierto, pegado muy fuerte en laminados especiales.',
   },
   {
     id: 7,
-    name: 'Resina Ortoftálica Estándar',
-    category: 'RESINAS DE POLIESTER',
-    type: 'ORTOFTALICA',
-    application: '',
-    description: 'Resina ortoftálica para aplicaciones generales',
+    name: 'DURATEK S-100',
+    code: 'S-100',
+    category: 'CEMENTOS DE CONTACTO',
+    type: 'POLICLOROPRENO',
+    application: 'TAPICERIA & ESPUMA',
+    pdfFile:
+      'duratek-s-100-adhesivo-policloropreno-felixible-tapiceria-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Adhesivo de policloropreno flexible; fraguado rápido en tapicería, espuma, cuero y vinil.',
   },
   {
     id: 8,
-    name: 'Resina Ortoftálica Tixotrópica',
-    category: 'RESINAS DE POLIESTER',
-    type: 'ORTOFTALICA TIXOTROPICA',
-    application: '',
-    description: 'Resina con propiedades tixotrópicas para aplicación vertical',
+    name: 'DURATEK S-500',
+    code: 'S-500',
+    category: 'CEMENTOS DE CONTACTO',
+    type: 'POLICLOROPRENO',
+    application: 'CALZADO',
+    pdfFile: 'duratek-s500-adhesivo-policloropreno-calzado-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Adhesivo de policloropreno para calzado; alta adhesión y resistencia a humedad en suelas.',
   },
   {
     id: 9,
-    name: 'Resina para Masillas',
-    category: 'RESINAS DE POLIESTER',
-    type: 'ORTOFTALICA PARA MASILLAS',
-    application: '',
-    description: 'Resina especializada para formulación de masillas',
-  },
-  {
-    id: 999,
-    name: 'Resinas Auxiliares',
-    category: 'RESINAS DE POLIESTER',
-    type: 'AUXILIARES',
-    application: '',
-    description: 'Resina especializada para formulación de masillas',
-  },
-  {
-    id: 10,
-    name: 'Resina Isoftálica NPG',
-    category: 'RESINAS DE POLIESTER',
-    type: 'ISOFTALICA NPG',
-    application: '',
-    description: 'Resina isoftálica con neopentilglicol',
+    name: 'DURATEK S-600',
+    code: 'S-600',
+    category: 'CEMENTOS DE CONTACTO',
+    type: 'POLICLOROPRENO',
+    application: 'CALZADO',
+    pdfFile:
+      'duratek-s600-adhesivo-policloropreno-calzado-extra-fuerte-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Adhesivo de policloropreno extra-fuerte; montado de suelas de cuero/goma para trabajo pesado.',
   },
 
-  // Sistemas de Poliuretano
+  // CEMENTOS DE CONTACTO - CAUCHO NATURAL
+  {
+    id: 10,
+    name: 'SUTEX-240',
+    code: 'SUTEX-240',
+    category: 'CEMENTOS DE CONTACTO',
+    type: 'CAUCHO NATURAL',
+    application: '',
+    pdfFile:
+      'sutex-240-adhesivo-caucho-natural-translucido-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Adhesivo de caucho natural translúcido; tack inmediato y reposicionable para artes gráficas.',
+  },
+
+  // CEMENTOS DE CONTACTO - POLIURETANO REACTIVABLE
   {
     id: 11,
-    name: 'Sistema PU Calzado Seguridad Compacto',
-    category: 'SISTEMAS DE POLIURETANO',
-    type: 'CALZADO DE SEGURIDAD',
-    application: 'COMPACTO',
-    description: 'Sistema PU bicomponente para suelas compactas de seguridad',
+    name: 'SUTEX S-2800',
+    code: 'S-2800',
+    category: 'CEMENTOS DE CONTACTO',
+    type: 'POLIURETANO REACTIVABLE',
+    application: '',
+    pdfFile:
+      'sutex-s-2800-adhesivo-pu-reactivable-monocomponente-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Adhesivo PU reactivable monocomponente; reactivación térmica y alta resistencia en suelas.',
   },
   {
     id: 12,
-    name: 'Sistema PU Calzado Seguridad Expanso',
-    category: 'SISTEMAS DE POLIURETANO',
-    type: 'CALZADO DE SEGURIDAD',
-    application: 'EXPANSO',
-    description: 'Sistema PU expandido para suelas ligeras de seguridad',
+    name: 'SUTEX TPU-630',
+    code: 'TPU-630',
+    category: 'CEMENTOS DE CONTACTO',
+    type: 'POLIURETANO REACTIVABLE',
+    application: '',
+    pdfFile:
+      'sutex-tpu-630-adhesivo-pu-reactivable-monocomponente-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Adhesivo PU reactivable; monocomponente, opción de endurecedor para curado veloz en calzado técnico.',
   },
+
+  // RESINAS DE POLIESTER
   {
     id: 13,
-    name: 'Sistema PU Calzado Dama',
-    category: 'SISTEMAS DE POLIURETANO',
-    type: 'CALZADO DAMA',
+    name: 'POLY-3711N',
+    code: 'POLY-3711N',
+    category: 'RESINAS DE POLIESTER',
+    type: 'TEREFTALICA',
     application: '',
-    description: 'Sistema especializado para calzado femenino',
+    pdfFile: 'poly-3711n-resina-poliester-tereftalica-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Resina tereftálica no pre-acelerada; baja viscosidad para laminados FRP de uso general.',
   },
   {
     id: 14,
-    name: 'Sistema PU Plantillas Confort',
-    category: 'SISTEMAS DE POLIURETANO',
-    type: 'PLANTILLAS',
+    name: 'POLY-3705N',
+    code: 'POLY-3705N',
+    category: 'RESINAS DE POLIESTER',
+    type: 'ORTOFTALICA',
     application: '',
-    description: 'Sistema para plantillas de alta comodidad',
+    pdfFile: 'poly-3705n-resina-poliester-ortoftalica-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Resina ortoftálica no pre-acelerada; rígida y de buena humectación para carrocerías y lanchas.',
   },
-
-  // Barnices y Selladores
   {
     id: 15,
-    name: 'Barniz Natural Transparente',
-    category: 'BARNICES Y SELLADORES PARA MADERA',
-    type: 'BARNICES',
-    application: 'NATURAL',
-    description: 'Barniz transparente para acabado natural de madera',
+    name: 'POLY-3751',
+    code: 'POLY-3751',
+    category: 'RESINAS DE POLIESTER',
+    type: 'ORTOFTALICA TIXOTROPICA',
+    application: '',
+    pdfFile:
+      'poly-3751-resina-poliester-ortoftalica-tixotropica-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Resina ortoftálica tixotrópica pre-acelerada; no escurre y favorece laminados verticales/spray-up.',
   },
   {
     id: 16,
-    name: 'Barniz Marino Protector',
-    category: 'BARNICES Y SELLADORES PARA MADERA',
-    type: 'BARNICES',
-    application: 'MARINO',
-    description: 'Barniz especial resistente a ambientes marinos',
+    name: 'POLY-3703S',
+    code: 'POLY-3703S',
+    category: 'RESINAS DE POLIESTER',
+    type: 'ORTOFTALICA PARA MASILLAS',
+    application: '',
+    pdfFile: 'poly-3703s-resina-poliester-ortoftalica-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Resina ortoftálica para masillas; base de body-filler catalizado con BPO para reparación automotriz.',
   },
   {
     id: 17,
-    name: 'Sellador Adhesivo Universal',
-    category: 'BARNICES Y SELLADORES PARA MADERA',
-    type: 'SELLADORES & ADHESIVOS',
+    name: 'POLY-3808',
+    code: 'POLY-3808',
+    category: 'RESINAS DE POLIESTER',
+    type: 'ISOFTALICA NPG',
     application: '',
-    description: 'Sellador con propiedades adhesivas',
+    pdfFile: 'poly-3808-resina-poliester-iso-npg-gel-coat-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Resina ISO-NPG; brillo y resistencia UV para gel-coats náuticos y sanitarios.',
   },
-
-  // Automotriz
   {
     id: 18,
-    name: 'Fluido de Frenos DOT 3',
-    category: 'AUTOMOTRIZ',
-    type: 'FLUIDOS PARA FRENOS',
-    application: 'DOT 3',
-    description: 'Líquido de frenos certificación DOT 3',
+    name: 'POLY-3809',
+    code: 'POLY-3809',
+    category: 'RESINAS DE POLIESTER',
+    type: 'ISOFTALICA NPG',
+    application: '',
+    pdfFile: 'poly-3809-resina-poliester-iso-npg-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Resina ISO-NPG; mayor resistencia química para FRP de alto desempeño y tanques.',
   },
   {
     id: 19,
-    name: 'Fluido de Frenos DOT 4',
-    category: 'AUTOMOTRIZ',
-    type: 'FLUIDOS PARA FRENOS',
-    application: 'DOT 4',
-    description: 'Líquido de frenos certificación DOT 4',
+    name: 'POLY-7010',
+    code: 'POLY-7010',
+    category: 'RESINAS DE POLIESTER',
+    type: 'AUXILIARES',
+    application: '',
+    pdfFile: 'poly-7010-solvente-lavapoliester-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Solvente lavapoliéster; reduce viscosidad y limpia pistolas/herramientas.',
   },
+
+  // SISTEMAS DE POLIURETANO - CALZADO DE SEGURIDAD
   {
     id: 20,
-    name: 'Fluido de Frenos DOT 5.1',
-    category: 'AUTOMOTRIZ',
-    type: 'FLUIDOS PARA FRENOS',
-    application: 'DOT 5.1',
-    description: 'Líquido de frenos alta performance DOT 5.1',
+    name: 'POLYRESIN P340-M902',
+    code: 'P340-M902',
+    category: 'SISTEMAS DE POLIURETANO',
+    type: 'CALZADO DE SEGURIDAD',
+    application: 'COMPACTO',
+    pdfFile:
+      'polyresin-p340-m902-sistema-pu-compacto-suela-seguridad-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Sistema compacto para suela de seguridad; desmolde rápido y alta dureza.',
   },
   {
     id: 21,
-    name: 'Desengrasante Industrial',
-    category: 'AUTOMOTRIZ',
-    type: 'DESENGRASANTES Y LIMPIEZA',
-    application: '',
-    description: 'Desengrasante de alta eficacia para limpieza industrial',
+    name: 'POLYRESIN M902S',
+    code: 'M902S',
+    category: 'SISTEMAS DE POLIURETANO',
+    type: 'CALZADO DE SEGURIDAD',
+    application: 'COMPACTO',
+    pdfFile:
+      'polyresin-p340-m902s-sistema-pu-compacto-suela-seguridad-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Sistema compacto para suela de seguridad; optimizado en fluidez/proporción para inyección estable.',
   },
   {
     id: 22,
-    name: 'Fórmula Marina Anticorrosiva',
-    category: 'AUTOMOTRIZ',
-    type: 'FORMULA MARINA',
-    application: '',
-    description: 'Fórmula especial para protección en ambientes marinos',
+    name: 'POLYRESIN M903S',
+    code: 'M903S',
+    category: 'SISTEMAS DE POLIURETANO',
+    type: 'CALZADO DE SEGURIDAD',
+    application: 'COMPACTO',
+    pdfFile:
+      'polyresin-p340-m903s-sistema-pu-compacto-suela-seguridad-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Sistema compacto para suela de seguridad; formulado para ciclos cortos en producción.',
   },
   {
     id: 23,
-    name: 'Limpiador de Inyectores Premium',
-    category: 'AUTOMOTRIZ',
-    type: 'LIQUIDO LIMPIADOR DE INYECTORES',
-    application: '',
-    description: 'Limpiador especializado para sistemas de inyección',
+    name: 'POLYRESIN P340-M856',
+    code: 'P340-M856',
+    category: 'SISTEMAS DE POLIURETANO',
+    type: 'CALZADO DE SEGURIDAD',
+    application: 'EXPANSO',
+    pdfFile:
+      'polyresin-p340-m856-sistema-pu-expanso-suela-seguridad-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Sistema expanso lineal para suela/entresuela de seguridad; baja densidad y buen rebote.',
   },
   {
     id: 24,
-    name: 'Refrigerante Motor Universal',
-    category: 'AUTOMOTRIZ',
-    type: 'REFRIGERANTES',
-    application: '',
-    description: 'Refrigerante universal para sistemas de enfriamiento',
+    name: 'POLYRESIN M855S',
+    code: 'M855S',
+    category: 'SISTEMAS DE POLIURETANO',
+    type: 'CALZADO DE SEGURIDAD',
+    application: 'EXPANSO',
+    pdfFile:
+      'polyresin-p340-m855s-sistema-pu-expanso-suela-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Sistema expanso lineal para suela/entresuela; ligero, de gran amortiguación y buen rebote para confort prolongado.',
   },
+
+  // SISTEMAS DE POLIURETANO - OTROS
   {
     id: 25,
-    name: 'SAE 15W-40 Motor Gasolina',
-    category: 'AUTOMOTRIZ',
-    type: 'LUBRICANTES',
-    application: 'MOTORES GASOLINA',
-    description: 'Aceite multigrado para motores gasolina',
+    name: 'POLYRESIN P367-M134-4318',
+    code: 'P367-M134-4318',
+    category: 'SISTEMAS DE POLIURETANO',
+    type: 'CALZADO DAMA',
+    application: '',
+    pdfFile:
+      'polyresin-p367-m134-4318-sistema-pu-microcelular-suela-dama-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Sistema microcelular para suela dama; ultraligero y de acabado fino.',
   },
   {
     id: 26,
-    name: 'SAE 20W-50 Motor Gasolina',
-    category: 'AUTOMOTRIZ',
-    type: 'LUBRICANTES',
-    application: 'MOTORES GASOLINA',
-    description: 'Aceite alta viscosidad para motores gasolina',
+    name: 'POLYRESIN P367E-M1005-4320',
+    code: 'P367E-M1005-4320',
+    category: 'SISTEMAS DE POLIURETANO',
+    type: 'CALZADO DAMA',
+    application: '',
+    pdfFile:
+      'polyresin-p367-m1005-4320-sistema-pu-microcelular-suela-dama-ficha-tecnica-es-ve',
+    badges: [],
+    description: 'Sistema microcelular para suela dama; ligero y acabado fino.',
   },
   {
     id: 27,
-    name: 'SAE 15W-40 Motor Diesel',
-    category: 'AUTOMOTRIZ',
-    type: 'LUBRICANTES',
-    application: 'MOTORES DIESEL',
-    description: 'Aceite especializado para motores diesel',
+    name: 'POLYRESIN P353-M1004-4320',
+    code: 'P353-M1004-4320',
+    category: 'SISTEMAS DE POLIURETANO',
+    type: 'CALZADO CASUAL',
+    application: '',
+    pdfFile:
+      'polyresin-p353-m1004-4320-sistema-pu-suela-casual-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Sistema lineal monodensidad para suela casual; proceso simple y balance confort/dureza.',
   },
   {
     id: 28,
-    name: 'SAE 10W-30 Motor Diesel',
-    category: 'AUTOMOTRIZ',
-    type: 'LUBRICANTES',
-    application: 'MOTORES DIESEL',
-    description: 'Aceite sintético para motores diesel modernos',
+    name: 'POLYRESIN P4352-4320',
+    code: 'P4352-4320',
+    category: 'SISTEMAS DE POLIURETANO',
+    type: 'PLANTILLAS',
+    application: '',
+    pdfFile:
+      'polyresin-p4352-4320-sistema-pu-espuma-flexible-plantillas-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Sistema de espuma flexible para plantillas; gran amortiguación y resiliencia.',
   },
   {
     id: 29,
-    name: 'Aceite Hidráulico AW 32',
-    category: 'AUTOMOTRIZ',
-    type: 'LUBRICANTES',
-    application: 'HIDRAULICO AW',
-    description: 'Aceite hidráulico anti-desgaste ISO 32',
+    name: 'POLYRESIN P4354-4320',
+    code: 'P4354-4320',
+    category: 'SISTEMAS DE POLIURETANO',
+    type: 'PLANTILLAS',
+    application: '',
+    pdfFile:
+      'polyresin-p4354-4320-sistema-pu-espuma-flexible-plantillas-entresuelas-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Sistema de espuma flexible para plantillas entresuelas; confort prolongado en uso diario.',
   },
   {
     id: 30,
-    name: 'Aceite Hidráulico AW 68',
-    category: 'AUTOMOTRIZ',
-    type: 'LUBRICANTES',
-    application: 'HIDRAULICO AW',
-    description: 'Aceite hidráulico anti-desgaste ISO 68',
+    name: 'POLYRESIN P4354-4318',
+    code: 'P4354-4318',
+    category: 'SISTEMAS DE POLIURETANO',
+    type: 'ASIENTOS',
+    application: '',
+    pdfFile:
+      'polyresin-p4354-4318-sistema-pu-espuma-asientos-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Sistema HR (alta resiliencia) para sillines/asientos; confort y recuperación rápida.',
   },
   {
     id: 31,
-    name: 'Aceite Transmisión ATF',
-    category: 'AUTOMOTRIZ',
-    type: 'LUBRICANTES',
-    application: 'TRANSMISIONES',
-    description: 'Fluido para transmisiones automáticas',
+    name: 'POLYRESIN PREPOLÍMERO 4320',
+    code: 'PREPOLIMERO 4320',
+    category: 'SISTEMAS DE POLIURETANO',
+    type: 'PREPOLIMEROS DE FORMULACION',
+    application: '',
+    pdfFile:
+      'polyresin-prepolimero-4320-isocianato-para-formulacion-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Prepolímero isocianato para formulación; base de sistemas compactos/expansos.',
   },
   {
     id: 32,
-    name: 'Aceite Transmisión Manual SAE 80W-90',
-    category: 'AUTOMOTRIZ',
-    type: 'LUBRICANTES',
-    application: 'TRANSMISIONES',
-    description: 'Aceite para cajas de cambios manuales',
+    name: 'POLYRESIN PREPOLÍMERO 4318',
+    code: 'PREPOLIMERO 4318',
+    category: 'SISTEMAS DE POLIURETANO',
+    type: 'PREPOLIMEROS DE FORMULACION',
+    application: '',
+    pdfFile:
+      'polyresin-prepolimero-4318-isocianato-para-formulacion-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Prepolímero isocianato para formulación (suela dama); %NCO y viscosidad controlados.',
   },
+
+  // BARNICES Y SELLADORES PARA MADERA
   {
     id: 33,
-    name: 'Aceite Tractor Universal',
-    category: 'AUTOMOTRIZ',
-    type: 'LUBRICANTES',
-    application: 'TRACTORES',
-    description: 'Aceite multifuncional para tractores',
+    name: 'DURATEK DBNB',
+    code: 'DBNB',
+    category: 'BARNICES Y SELLADORES PARA MADERA',
+    type: 'BARNICES',
+    application: 'NATURAL',
+    pdfFile: 'duratek-dbnb-barniz-natural-brillante-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Barniz natural brillante alquídico; realza la veta y protege interiores con acabado espejo.',
   },
   {
     id: 34,
-    name: 'Aceite Turbina ISO 32',
-    category: 'AUTOMOTRIZ',
-    type: 'LUBRICANTES',
-    application: 'TURBINA',
-    description: 'Aceite especializado para turbinas industriales',
+    name: 'DURATEK DBSR',
+    code: 'DBSR',
+    category: 'BARNICES Y SELLADORES PARA MADERA',
+    type: 'BARNICES',
+    application: 'NATURAL',
+    pdfFile:
+      'duratek-dbsr-barniz-natural-brillante-secado-rapido-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Barniz natural brillante alquídico; secado rápido para repinte ágil en líneas productivas.',
   },
   {
     id: 35,
-    name: 'Aceite Corte Metales Soluble',
-    category: 'AUTOMOTRIZ',
-    type: 'LUBRICANTES',
-    application: 'CORTE DE METAL',
-    description: 'Fluido de corte soluble para mecanizado',
+    name: 'DURATEK DBMN',
+    code: 'DBMN',
+    category: 'BARNICES Y SELLADORES PARA MADERA',
+    type: 'BARNICES',
+    application: 'MARINO',
+    pdfFile: 'duratek-dbmn-barniz-marino-brillante-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Barniz marino brillante fenólico; alta resistencia UV/agua para exteriores y ebanistería náutica.',
   },
   {
     id: 36,
-    name: 'Aceite Corte Metales Directo',
+    name: 'DURATEK DSL-3001',
+    code: 'DSL-3001',
+    category: 'BARNICES Y SELLADORES PARA MADERA',
+    type: 'SELLADORES & ADHESIVOS',
+    application: '',
+    pdfFile:
+      'duratek-dsl-3001-sellador-celulosico-listo-para-usar-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Sellador celulósico listo para usar; seca en minutos y se lija fácil para cerrar poro.',
+  },
+  {
+    id: 37,
+    name: 'DURATEK DCB',
+    code: 'DCB',
+    category: 'BARNICES Y SELLADORES PARA MADERA',
+    type: 'SELLADORES & ADHESIVOS',
+    application: '',
+    pdfFile: 'duratek-dcb-adhesivo-pva-cola-blanca-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Adhesivo PVA base agua ("cola blanca"); transparente al curar y de uso versátil en madera/papel.',
+  },
+  {
+    id: 38,
+    name: 'DURATEK W380',
+    code: 'W380',
+    category: 'BARNICES Y SELLADORES PARA MADERA',
+    type: 'REMOVEDORES',
+    application: '',
+    pdfFile: 'duratek-w380-removedor-de-pinturas-gel-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Removedor en gel/pasta; decapa esmaltes y barnices con acción rápida para restauración.',
+  },
+
+  // AUTOMOTRIZ - FLUIDOS PARA FRENOS
+  {
+    id: 39,
+    name: 'AUTOTEK W1200',
+    code: 'W1200',
+    category: 'AUTOMOTRIZ',
+    type: 'FLUIDOS PARA FRENOS',
+    application: 'DOT 3',
+    pdfFile: 'autotek-w1200-liquido-frenos-dot3-ficha-tecnica-es-ve',
+    badges: ['DOT-3'],
+    description:
+      'DOT-3 Fluido sintético para frenos hidráulicos; brinda punto de ebullición adecuado y protección de sellos.',
+  },
+  {
+    id: 40,
+    name: 'AUTOTEK W1300',
+    code: 'W1300',
+    category: 'AUTOMOTRIZ',
+    type: 'FLUIDOS PARA FRENOS',
+    application: 'DOT 4',
+    pdfFile: 'autotek-w1300-liquido-frenos-dot4-ficha-tecnica-es-ve',
+    badges: ['DOT-4'],
+    description:
+      'DOT-4 Fluido sintético para frenos hidráulicos; mayor resistencia a "vapor lock" y desempeño en ABS/ESP.',
+  },
+  {
+    id: 41,
+    name: 'AUTOTEK W1500',
+    code: 'W1500',
+    category: 'AUTOMOTRIZ',
+    type: 'FLUIDOS PARA FRENOS',
+    application: 'DOT 5.1',
+    pdfFile: 'autotek-w1500-liquido-frenos-dot5.1-ficha-tecnica-es-ve',
+    badges: ['DOT-5.1'],
+    description:
+      'DOT-5.1 Fluido sintético para frenos hidráulicos; baja viscosidad a frío y respuesta rápida en uso severo.',
+  },
+
+  // AUTOMOTRIZ - DESENGRASANTES Y LIMPIEZA
+  {
+    id: 42,
+    name: 'AUTOTEK W0115',
+    code: 'W0115',
+    category: 'AUTOMOTRIZ',
+    type: 'DESENGRASANTES Y LIMPIEZA',
+    application: '',
+    pdfFile: 'autotek-w0115-desengrasante-base-agua-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Desengrasante base agua multiusos; limpia rápido sin residuos en motores y superficies.',
+  },
+  {
+    id: 43,
+    name: 'AUTOTEK POLY-590',
+    code: 'POLY-590',
+    category: 'AUTOMOTRIZ',
+    type: 'DESENGRASANTES Y LIMPIEZA',
+    application: '',
+    pdfFile: 'autotek-poly-590-desengrasante-dielectrico-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Desengrasante dieléctrico; evapora rápido y no humedece componentes eléctricos.',
+  },
+  {
+    id: 44,
+    name: 'AUTOTEK RUG-2070',
+    code: 'RUG-2070',
+    category: 'AUTOMOTRIZ',
+    type: 'DESENGRASANTES Y LIMPIEZA',
+    application: '',
+    pdfFile: 'autotek-rug-2070-limpiador-textiles-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Limpiador espumoso para textiles; remueve manchas y renueva tapicerías y alfombras.',
+  },
+  {
+    id: 45,
+    name: 'AUTOTEK W321',
+    code: 'W321',
+    category: 'AUTOMOTRIZ',
+    type: 'DESENGRASANTES Y LIMPIEZA',
+    application: '',
+    pdfFile: 'autotek-w321-limpiador-descarbonzante-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Limpiador–desengrasante–descarbonizante; remueve barnices y aceite quemado de piezas metálicas.',
+  },
+
+  // AUTOMOTRIZ - FORMULA MARINA
+  {
+    id: 46,
+    name: 'AUTOTEK LW-4000',
+    code: 'LW-4000',
+    category: 'AUTOMOTRIZ',
+    type: 'FORMULA MARINA',
+    application: '',
+    pdfFile: 'autotek-lw-4000-formula-marina-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Formula marina. Lubricante anticorrosivo multipropósito; desplaza humedad y protege en ambientes salinos.',
+  },
+
+  // AUTOMOTRIZ - LÍQUIDO LIMPIADOR DE INYECTORES
+  {
+    id: 47,
+    name: 'AUTOTEK ULTRASONIC-2000',
+    code: 'ULTRASONIC-2000',
+    category: 'AUTOMOTRIZ',
+    type: 'LIQUIDO LIMPIADOR DE INYECTORES',
+    application: '',
+    pdfFile:
+      'autotek-ultrasonic-2000-limpiador-inyectores-banco-ultrasonido-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Líquido para limpieza en banco/ultrasonido; despega lacas y uniformiza el patrón de inyección. Extra-fuerte removedor de carbonilla.',
+  },
+  {
+    id: 48,
+    name: 'AUTOTEK WF-2000',
+    code: 'WF-2000',
+    category: 'AUTOMOTRIZ',
+    type: 'LIQUIDO LIMPIADOR DE INYECTORES',
+    application: '',
+    pdfFile: 'autotek-wf-2000-limpiador-inyectores-aditivo-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Limpiador de inyectores concentrado; descarboniza sin desmontar y mejora ralentí/consumo. Incrementa el octanaje.',
+  },
+
+  // AUTOMOTRIZ - REFRIGERANTES
+  {
+    id: 49,
+    name: 'AUTOTEK W5050',
+    code: 'W5050',
+    category: 'AUTOMOTRIZ',
+    type: 'REFRIGERANTES',
+    application: '',
+    pdfFile: 'autotek-w5050-refrigerante-oat-prediluido-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Refrigerante OAT prediluido 50/50; recomendado para cualquier tipo de motor.',
+  },
+  {
+    id: 50,
+    name: 'AUTOTEK W1010',
+    code: 'W1010',
+    category: 'AUTOMOTRIZ',
+    type: 'REFRIGERANTES',
+    application: '',
+    pdfFile: 'autotek-w1010-refrigerante-oat-prediluido-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Refrigerante OAT prediluido listo para usar; larga vida útil y protección contra la oxidación.',
+  },
+
+  // AUTOMOTRIZ - LUBRICANTES MOTORES GASOLINA
+  {
+    id: 51,
+    name: 'AUTOTEK SAE 15W-40 SN',
+    code: 'SAE 15W-40 SN',
+    category: 'AUTOMOTRIZ',
+    type: 'LUBRICANTES',
+    application: 'MOTORES GASOLINA',
+    pdfFile: 'autotek-aceite-sae-15w40-sn-semisintetico-ficha-tecnica-ve',
+    badges: ['SAE 15W-40', 'API SN', 'Semi-sintético'],
+    description: 'Aceite para motor gasolina; SAE 15W-40 SN.',
+  },
+  {
+    id: 52,
+    name: 'AUTOTEK SAE 15W-40 API SN',
+    code: 'SAE 15W-40 API SN',
+    category: 'AUTOMOTRIZ',
+    type: 'LUBRICANTES',
+    application: 'MOTORES GASOLINA',
+    pdfFile: 'autotek-aceite-sae-15w40-api-sn-mineral-ficha-tecnica-ve',
+    badges: ['SAE 15W-40', 'API SN', 'Mineral'],
+    description:
+      'Aceite mineral multigrado para motor gasolina; SAE 15W-40 API SN.',
+  },
+  {
+    id: 53,
+    name: 'AUTOTEK SAE 20W-50 SN',
+    code: 'SAE 20W-50 SN',
+    category: 'AUTOMOTRIZ',
+    type: 'LUBRICANTES',
+    application: 'MOTORES GASOLINA',
+    pdfFile: 'autotek-aceite-mineral-sae-20w50-sn-ficha-tecnica-ve',
+    badges: ['SAE 20W-50', 'API SN', 'Mineral'],
+    description:
+      'Aceite mineral multigrado para motor gasolina; SAE 20W-50 SN.',
+  },
+
+  // AUTOMOTRIZ - LUBRICANTES MOTORES DIESEL
+  {
+    id: 54,
+    name: 'AUTOTEK SAE 15W-40 DIESEL',
+    code: 'SAE 15W-40',
+    category: 'AUTOMOTRIZ',
+    type: 'LUBRICANTES',
+    application: 'MOTORES DIESEL',
+    pdfFile: 'autotek-aceite-diesel-sae-15w40-ficha-tecnica-ve',
+    badges: ['SAE 15W-40'],
+    description:
+      'Aceite multigrado para motor diésel; SAE 15W-40. Maneja hollín y sostiene película lubricante bajo carga.',
+  },
+  {
+    id: 55,
+    name: 'AUTOTEK SAE 20W-50 DIESEL',
+    code: 'SAE 20W-50',
+    category: 'AUTOMOTRIZ',
+    type: 'LUBRICANTES',
+    application: 'MOTORES DIESEL',
+    pdfFile: 'autotek-aceite-diesel-sae-20w50-ficha-tecnica-ve',
+    badges: ['SAE 20W-50'],
+    description: 'Aceite para motor diésel; SAE 20W-50. Monogrado.',
+  },
+
+  // AUTOMOTRIZ - LUBRICANTES HIDRÁULICO AW
+  {
+    id: 56,
+    name: 'AUTOTEK AW-22',
+    code: 'AW-22',
+    category: 'AUTOMOTRIZ',
+    type: 'LUBRICANTES',
+    application: 'HIDRAULICO AW',
+    pdfFile: 'autotek-aw-22-aceite-hidraulico-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Aceite hidráulico AW-22; cuenta con propiedades antidesgaste, antispumante, antioxidante y demulsificantes.',
+  },
+  {
+    id: 57,
+    name: 'AUTOTEK AW-68',
+    code: 'AW-68',
+    category: 'AUTOMOTRIZ',
+    type: 'LUBRICANTES',
+    application: 'HIDRAULICO AW',
+    pdfFile: 'autotek-aw-68-aceite-hidraulico-iso-vg-68-ficha-tecnica-es-ve',
+    badges: [],
+    description:
+      'Aceite hidráulico AW-68; cuenta con propiedades antidesgaste, antispumante, antioxidante y demulsificantes.',
+  },
+
+  // AUTOMOTRIZ - LUBRICANTES TRANSMISIONES
+  {
+    id: 58,
+    name: 'AUTOTEK DEXRON III',
+    code: 'FLUIDO A.T.F',
+    category: 'AUTOMOTRIZ',
+    type: 'LUBRICANTES',
+    application: 'TRANSMISIONES',
+    pdfFile: 'autotek-dexron-iii-fluido-atf-ficha-tecnica-es-ve',
+    badges: ['DEXRON III', 'MERCON FORD', 'COVENIN 899-3'],
+    description:
+      'Fluido para transmisiones automáticas; cambios suaves y fricción controlada.',
+  },
+  {
+    id: 59,
+    name: 'AUTOTEK GL5',
+    code: 'TRANSMISION GL5',
+    category: 'AUTOMOTRIZ',
+    type: 'LUBRICANTES',
+    application: 'TRANSMISIONES',
+    pdfFile: 'autotek-gl5-aceite-transmision-api-gl5-80w90-ficha-tecnica-es-ve',
+    badges: ['API MT-1', 'API GL5', 'MACK GOH', 'mil L-21050', 'COVENIN 987-2'],
+    description: 'Aceite para transmisiones manuales;SAE 80W90 / 85W140',
+  },
+
+  // AUTOMOTRIZ - LUBRICANTES TRACTORES
+  {
+    id: 60,
+    name: 'AUTOTEK LUBRICANTE TRACTORES',
+    code: 'ACEITE LUBRICANTE TRACTORES',
+    category: 'AUTOMOTRIZ',
+    type: 'LUBRICANTES',
+    application: 'TRACTORES',
+    pdfFile: 'autotek-lubricante-tractores-ficha-tecnica-ve',
+    badges: [],
+    description:
+      'Aceite para sistemas hidráulicos de tractores. Mezcla de bases minerales y packing de aditivos de alta calidad.',
+  },
+
+  // AUTOMOTRIZ - LUBRICANTES TURBINA
+  {
+    id: 61,
+    name: 'AUTOTEK ACEITE TURBINAS',
+    code: 'TURBO',
+    category: 'AUTOMOTRIZ',
+    type: 'LUBRICANTES',
+    application: 'TURBINA',
+    pdfFile: 'autotek-aceite-turbinas-ficha-tecnica-ve',
+    badges: [],
+    description:
+      'Aceite para cojinetes y turbinas; alta estabilidad oxidativa y térmica.',
+  },
+
+  // AUTOMOTRIZ - LUBRICANTES CORTE DE METAL
+  {
+    id: 62,
+    name: 'AUTOTEK FLUIDO SOLUBLE',
+    code: 'SOLUBLE',
     category: 'AUTOMOTRIZ',
     type: 'LUBRICANTES',
     application: 'CORTE DE METAL',
-    description: 'Aceite de corte directo para operaciones de mecanizado',
+    pdfFile: 'autotek-fluido-soluble-mecanizado-ficha-tecnica-ve',
+    badges: [],
+    description:
+      'Fluido soluble para mecanizado; protege y mejora acabado en metales. Libre de nitritos, fenoles y cloro.',
   },
 ]
