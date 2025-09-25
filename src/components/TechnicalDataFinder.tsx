@@ -12,6 +12,25 @@ export default function TechnicalDataFinder() {
     [],
   )
 
+  // Función para descargar PDF
+  const downloadPdf = (pdfFile: string, productName: string) => {
+    // Crear un enlace temporal
+    const link = document.createElement('a')
+
+    // Construir la ruta del PDF (asumiendo que están en la carpeta public/pdfs/)
+    const pdfUrl = `/pdfs/${pdfFile}.pdf`
+
+    // Configurar el enlace
+    link.href = pdfUrl
+    link.download = `${productName.replace(/\s+/g, '_')}.pdf`
+    link.target = '_blank'
+
+    // Simular clic para iniciar descarga
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
   // Obtener categorías disponibles
   const categories = Object.keys(filterData)
 
@@ -235,10 +254,8 @@ export default function TechnicalDataFinder() {
                   </div>
                   <button
                     className='text-green-600 hover:text-green-700 transition-colors duration-200 p-2 hover:bg-green-50 rounded-lg'
-                    onClick={() => {
-                      // Aquí iría la lógica para descargar el PDF
-                      console.log(`Descargando: ${product.pdfFile}`)
-                    }}>
+                    onClick={() => downloadPdf(product.pdfFile, product.name)}
+                    title={`Descargar ficha técnica de ${product.name}`}>
                     <Download size={18} />
                   </button>
                 </div>

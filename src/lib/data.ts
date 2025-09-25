@@ -180,7 +180,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'POLICLOROPRENO',
     application: 'UNIVERSAL / MULTIUSO',
     pdfFile:
-      'duratek-d10-adhesivo-policloropreno-universal-ficha-tecnica-es-ve',
+      'cementos/duratek-d10-adhesivo-policloropreno-universal-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Adhesivo de policloropreno universal; alto agarre inicial y secado rápido para muebles y reparaciones.',
@@ -193,7 +193,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'POLICLOROPRENO',
     application: 'UNIVERSAL / MULTIUSO',
     pdfFile:
-      'duratek-S-350-adhesivo-policloropreno-universal-ficha-tecnica-es-ve',
+      'cementos/duratek-S-350-adhesivo-policloropreno-universal-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Adhesivo de policloropreno multiuso; amplio margen de tiempo para posicionar y alinear las piezas antes de unirlas, con gran versatilidad de sustratos.',
@@ -206,7 +206,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'POLICLOROPRENO',
     application: 'LAMINADOS & MDF',
     pdfFile:
-      'duratek-d20-adhesivo-policloropreno-universal-ficha-tecnica-es-ve',
+      'cementos/duratek-d20-adhesivo-policloropreno-universal-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Adhesivo de policloropreno para laminados/MDF; mayor tiempo abierto para alineación precisa.',
@@ -219,7 +219,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'POLICLOROPRENO',
     application: 'LAMINADOS & MDF',
     pdfFile:
-      'duratek-d30-adhesivo-policloropreno-universal-ficha-tecnica-es-ve',
+      'cementos/duratek-d30-adhesivo-policloropreno-universal-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Adhesivo de policloropreno alta viscosidad; mejor resistencia térmica en carpintería pesada.',
@@ -232,7 +232,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'POLICLOROPRENO',
     application: 'LAMINADOS & MDF',
     pdfFile:
-      'duratek-spray-hs-adhesivo-policloropreno-spray-ficha-tecnica-es-ve',
+      'cementos/duratek-spray-hs-adhesivo-policloropreno-spray-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Adhesivo de policloropreno para aplicación a pistola; cobertura uniforme y productividad.',
@@ -245,7 +245,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'POLICLOROPRENO',
     application: 'LAMINADOS & MDF',
     pdfFile:
-      'duratek-s-1200-adhesivo-policloropreno-solidos-altos-ficha-tecnica-es-ve',
+      'cementos/duratek-s-1200-adhesivo-policloropreno-solidos-altos-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Adhesivo de policloropreno de sólidos altos; amplio tiempo abierto, pegado muy fuerte en laminados especiales.',
@@ -258,7 +258,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'POLICLOROPRENO',
     application: 'TAPICERIA & ESPUMA',
     pdfFile:
-      'duratek-s-100-adhesivo-policloropreno-felixible-tapiceria-ficha-tecnica-es-ve',
+      'cementos/duratek-s-100-adhesivo-policloropreno-felixible-tapiceria-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Adhesivo de policloropreno flexible; fraguado rápido en tapicería, espuma, cuero y vinil.',
@@ -270,7 +270,8 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'CEMENTOS DE CONTACTO',
     type: 'POLICLOROPRENO',
     application: 'CALZADO',
-    pdfFile: 'duratek-s500-adhesivo-policloropreno-calzado-ficha-tecnica-es-ve',
+    pdfFile:
+      'cementos/duratek-s500-adhesivo-policloropreno-calzado-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Adhesivo de policloropreno para calzado; alta adhesión y resistencia a humedad en suelas.',
@@ -283,7 +284,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'POLICLOROPRENO',
     application: 'CALZADO',
     pdfFile:
-      'duratek-s600-adhesivo-policloropreno-calzado-extra-fuerte-ficha-tecnica-es-ve',
+      'cementos/duratek-s600-adhesivo-policloropreno-calzado-extra-fuerte-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Adhesivo de policloropreno extra-fuerte; montado de suelas de cuero/goma para trabajo pesado.',
@@ -298,7 +299,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'CAUCHO NATURAL',
     application: '',
     pdfFile:
-      'sutex-240-adhesivo-caucho-natural-translucido-ficha-tecnica-es-ve',
+      'cementos/sutex-240-adhesivo-caucho-natural-translucido-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Adhesivo de caucho natural translúcido; tack inmediato y reposicionable para artes gráficas.',
@@ -313,7 +314,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'POLIURETANO REACTIVABLE',
     application: '',
     pdfFile:
-      'sutex-s-2800-adhesivo-pu-reactivable-monocomponente-ficha-tecnica-es-ve',
+      'cementos/sutex-s-2800-adhesivo-pu-reactivable-monocomponente-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Adhesivo PU reactivable monocomponente; reactivación térmica y alta resistencia en suelas.',
@@ -326,7 +327,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'POLIURETANO REACTIVABLE',
     application: '',
     pdfFile:
-      'sutex-tpu-630-adhesivo-pu-reactivable-monocomponente-ficha-tecnica-es-ve',
+      'cementos/sutex-tpu-630-adhesivo-pu-reactivable-monocomponente-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Adhesivo PU reactivable; monocomponente, opción de endurecedor para curado veloz en calzado técnico.',
