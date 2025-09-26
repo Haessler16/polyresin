@@ -31,20 +31,13 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-lg backdrop-blur-sm' : 'bg-white/95'
+        scrolled ? 'bg-white shadow-lg backdrop-blur-sm' : 'bg-white'
       }`}>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex justify-between items-center'>
           {/* Logo */}
           <Link href='/' className='flex items-center space-x-2'>
             <Image src={img} alt='empresa con su nombre' width={140} />
-            {/* <div className='w-10 h-10 bg-qp-green rounded-lg flex items-center justify-center'>
-              <span className='text-white font-bold text-xl'>QP</span>
-            </div>
-            <div className='hidden sm:block'>
-              <div className='text-lg font-bold text-gray-900'>QUÍMICAS</div>
-              <div className='text-xs text-gray-600 -mt-1'>POLYRESIN</div>
-            </div> */}
           </Link>
 
           {/* Desktop Navigation */}
@@ -53,8 +46,10 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-gray-700 hover:text-qp-green px-3 py-2 text-base font-medium transition-colors duration-200 relative group ${
-                  pathname === item.href ? 'text-qp-green' : ''
+                className={`text-gray-700 hover:text-qp-green px-3 py-2 text-2xl transition-colors duration-200 relative group ${
+                  pathname === item.href
+                    ? 'text-qp-green font-bold'
+                    : 'font-medium'
                 }`}>
                 {item.name}
                 <span

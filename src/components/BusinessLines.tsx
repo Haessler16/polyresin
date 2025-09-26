@@ -33,7 +33,7 @@ export default function BusinessLines() {
     const { className, style, onClick } = props
     return (
       <ArrowRight
-        size={30}
+        size={40}
         className={className}
         style={{
           ...style,
@@ -43,7 +43,10 @@ export default function BusinessLines() {
           padding: '2px',
           color: 'white',
           boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-          marginRight: '10px',
+          // marginRight: '10px',
+
+          width: '30px',
+          height: '30px',
         }}
         onClick={onClick}
       />
@@ -54,7 +57,7 @@ export default function BusinessLines() {
     const { className, style, onClick } = props
     return (
       <ArrowLeft
-        size={30}
+        size={40}
         className={className}
         style={{
           ...style,
@@ -64,12 +67,16 @@ export default function BusinessLines() {
           padding: '2px',
           color: 'white',
           boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-          marginLeft: '10px',
+
+          // marginLeft: '10px',
+          width: '30px',
+          height: '30px',
         }}
         onClick={onClick}
       />
     )
   }
+
   const settings: SettingsSlick = {
     dots: true,
     infinite: true,
@@ -79,10 +86,10 @@ export default function BusinessLines() {
     autoplay: true,
     autoplaySpeed: 5000,
     cssEase: 'ease-in-out',
-    centerPadding: '60px',
+    centerPadding: '0px',
+    className: 'flex gap-6',
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
-
     responsive: [
       {
         breakpoint: 1024,
@@ -94,7 +101,7 @@ export default function BusinessLines() {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -165,7 +172,7 @@ export default function BusinessLines() {
                   </p>
 
                   {/* Hover indicator */}
-                  <div className='absolute bottom-4 right-4 w-8 h-8 bg-qp-green rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300'>
+                  {/* <div className='absolute bottom-4 right-4 w-8 h-8 bg-qp-green rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300'>
                     <svg
                       className='w-4 h-4 text-white'
                       fill='none'
@@ -178,7 +185,7 @@ export default function BusinessLines() {
                         d='M9 5l7 7-7 7'
                       />
                     </svg>
-                  </div>
+                  </div> */}
                 </div>
               </motion.div>
             )
