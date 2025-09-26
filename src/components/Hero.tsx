@@ -56,7 +56,7 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
                 className='mt-4 text-lg text-gray-600 leading-relaxed'>
-                <strong className='text-qp-green '>Nuestra Misión</strong> es
+                <strong className='text-qp-green '>Nuestra Misión</strong> es{' '}
                 <b>
                   fabricar y suministrar soluciones químicas confiables que
                   faciliten la producción de nuestros clientes

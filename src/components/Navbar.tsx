@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-import img from '../../public/logo.jpg'
+import img from '../../public/logo.jpeg'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -33,7 +33,7 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled ? 'bg-white shadow-lg backdrop-blur-sm' : 'bg-white'
       }`}>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+      <div className='max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8'>
         <div className='flex justify-between items-center'>
           {/* Logo */}
           <Link href='/' className='flex items-center space-x-2'>

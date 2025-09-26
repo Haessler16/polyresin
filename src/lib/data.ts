@@ -341,7 +341,8 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'RESINAS DE POLIESTER',
     type: 'TEREFTALICA',
     application: '',
-    pdfFile: 'poly-3711n-resina-poliester-tereftalica-ficha-tecnica-es-ve',
+    pdfFile:
+      'poliester/poly-3711n-resina-poliester-tereftalica-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Resina tereftálica no pre-acelerada; baja viscosidad para laminados FRP de uso general.',
@@ -353,7 +354,8 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'RESINAS DE POLIESTER',
     type: 'ORTOFTALICA',
     application: '',
-    pdfFile: 'poly-3705n-resina-poliester-ortoftalica-ficha-tecnica-es-ve',
+    pdfFile:
+      'poliester/poly-3705n-resina-poliester-ortoftalica-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Resina ortoftálica no pre-acelerada; rígida y de buena humectación para carrocerías y lanchas.',
@@ -366,7 +368,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'ORTOFTALICA TIXOTROPICA',
     application: '',
     pdfFile:
-      'poly-3751-resina-poliester-ortoftalica-tixotropica-ficha-tecnica-es-ve',
+      'poliester/poly-3751-resina-poliester-ortoftalica-tixotropica-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Resina ortoftálica tixotrópica pre-acelerada; no escurre y favorece laminados verticales/spray-up.',
@@ -378,7 +380,8 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'RESINAS DE POLIESTER',
     type: 'ORTOFTALICA PARA MASILLAS',
     application: '',
-    pdfFile: 'poly-3703s-resina-poliester-ortoftalica-ficha-tecnica-es-ve',
+    pdfFile:
+      'poliester/poly-3703s-resina-poliester-ortoftalica-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Resina ortoftálica para masillas; base de body-filler catalizado con BPO para reparación automotriz.',
@@ -390,7 +393,8 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'RESINAS DE POLIESTER',
     type: 'ISOFTALICA NPG',
     application: '',
-    pdfFile: 'poly-3808-resina-poliester-iso-npg-gel-coat-ficha-tecnica-es-ve',
+    pdfFile:
+      'poliester/poly-3808-resina-poliester-iso-npg-gel-coat-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Resina ISO-NPG; brillo y resistencia UV para gel-coats náuticos y sanitarios.',
@@ -402,7 +406,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'RESINAS DE POLIESTER',
     type: 'ISOFTALICA NPG',
     application: '',
-    pdfFile: 'poly-3809-resina-poliester-iso-npg-ficha-tecnica-es-ve',
+    pdfFile: 'poliester/poly-3809-resina-poliester-iso-npg-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Resina ISO-NPG; mayor resistencia química para FRP de alto desempeño y tanques.',
@@ -414,7 +418,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'RESINAS DE POLIESTER',
     type: 'AUXILIARES',
     application: '',
-    pdfFile: 'poly-7010-solvente-lavapoliester-ficha-tecnica-es-ve',
+    pdfFile: 'poliester/poly-7010-solvente-lavapoliester-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Solvente lavapoliéster; reduce viscosidad y limpia pistolas/herramientas.',
@@ -429,7 +433,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'CALZADO DE SEGURIDAD',
     application: 'COMPACTO',
     pdfFile:
-      'polyresin-p340-m902-sistema-pu-compacto-suela-seguridad-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-p340-m902-sistema-pu-compacto-suela-seguridad-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Sistema compacto para suela de seguridad; desmolde rápido y alta dureza.',
@@ -442,7 +446,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'CALZADO DE SEGURIDAD',
     application: 'COMPACTO',
     pdfFile:
-      'polyresin-p340-m902s-sistema-pu-compacto-suela-seguridad-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-p340-m902s-sistema-pu-compacto-suela-seguridad-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Sistema compacto para suela de seguridad; optimizado en fluidez/proporción para inyección estable.',
@@ -455,7 +459,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'CALZADO DE SEGURIDAD',
     application: 'COMPACTO',
     pdfFile:
-      'polyresin-p340-m903s-sistema-pu-compacto-suela-seguridad-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-p340-m903s-sistema-pu-compacto-suela-seguridad-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Sistema compacto para suela de seguridad; formulado para ciclos cortos en producción.',
@@ -468,7 +472,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'CALZADO DE SEGURIDAD',
     application: 'EXPANSO',
     pdfFile:
-      'polyresin-p340-m856-sistema-pu-expanso-suela-seguridad-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-p340-m856-sistema-pu-expanso-suela-seguridad-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Sistema expanso lineal para suela/entresuela de seguridad; baja densidad y buen rebote.',
@@ -481,7 +485,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'CALZADO DE SEGURIDAD',
     application: 'EXPANSO',
     pdfFile:
-      'polyresin-p340-m855s-sistema-pu-expanso-suela-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-p340-m855s-sistema-pu-expanso-suela-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Sistema expanso lineal para suela/entresuela; ligero, de gran amortiguación y buen rebote para confort prolongado.',
@@ -496,7 +500,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'CALZADO DAMA',
     application: '',
     pdfFile:
-      'polyresin-p367-m134-4318-sistema-pu-microcelular-suela-dama-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-p367-m134-4318-sistema-pu-microcelular-suela-dama-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Sistema microcelular para suela dama; ultraligero y de acabado fino.',
@@ -509,7 +513,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'CALZADO DAMA',
     application: '',
     pdfFile:
-      'polyresin-p367-m1005-4320-sistema-pu-microcelular-suela-dama-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-p367-m1005-4320-sistema-pu-microcelular-suela-dama-ficha-tecnica-es-ve',
     badges: [],
     description: 'Sistema microcelular para suela dama; ligero y acabado fino.',
   },
@@ -521,7 +525,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'CALZADO CASUAL',
     application: '',
     pdfFile:
-      'polyresin-p353-m1004-4320-sistema-pu-suela-casual-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-p353-m1004-4320-sistema-pu-suela-casual-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Sistema lineal monodensidad para suela casual; proceso simple y balance confort/dureza.',
@@ -534,7 +538,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'PLANTILLAS',
     application: '',
     pdfFile:
-      'polyresin-p4352-4320-sistema-pu-espuma-flexible-plantillas-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-p4352-4320-sistema-pu-espuma-flexible-plantillas-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Sistema de espuma flexible para plantillas; gran amortiguación y resiliencia.',
@@ -547,7 +551,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'PLANTILLAS',
     application: '',
     pdfFile:
-      'polyresin-p4354-4320-sistema-pu-espuma-flexible-plantillas-entresuelas-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-p4354-4320-sistema-pu-espuma-flexible-plantillas-entresuelas-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Sistema de espuma flexible para plantillas entresuelas; confort prolongado en uso diario.',
@@ -560,7 +564,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'ASIENTOS',
     application: '',
     pdfFile:
-      'polyresin-p4354-4318-sistema-pu-espuma-asientos-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-p4354-4318-sistema-pu-espuma-asientos-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Sistema HR (alta resiliencia) para sillines/asientos; confort y recuperación rápida.',
@@ -573,7 +577,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'PREPOLIMEROS DE FORMULACION',
     application: '',
     pdfFile:
-      'polyresin-prepolimero-4320-isocianato-para-formulacion-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-prepolimero-4320-isocianato-para-formulacion-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Prepolímero isocianato para formulación; base de sistemas compactos/expansos.',
@@ -586,7 +590,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'PREPOLIMEROS DE FORMULACION',
     application: '',
     pdfFile:
-      'polyresin-prepolimero-4318-isocianato-para-formulacion-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-prepolimero-4318-isocianato-para-formulacion-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Prepolímero isocianato para formulación (suela dama); %NCO y viscosidad controlados.',
@@ -600,7 +604,8 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'BARNICES Y SELLADORES PARA MADERA',
     type: 'BARNICES',
     application: 'NATURAL',
-    pdfFile: 'duratek-dbnb-barniz-natural-brillante-ficha-tecnica-es-ve',
+    pdfFile:
+      'barnices/duratek-dbnb-barniz-natural-brillante-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Barniz natural brillante alquídico; realza la veta y protege interiores con acabado espejo.',
@@ -613,7 +618,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'BARNICES',
     application: 'NATURAL',
     pdfFile:
-      'duratek-dbsr-barniz-natural-brillante-secado-rapido-ficha-tecnica-es-ve',
+      'barnices/duratek-dbsr-barniz-natural-brillante-secado-rapido-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Barniz natural brillante alquídico; secado rápido para repinte ágil en líneas productivas.',
@@ -625,7 +630,8 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'BARNICES Y SELLADORES PARA MADERA',
     type: 'BARNICES',
     application: 'MARINO',
-    pdfFile: 'duratek-dbmn-barniz-marino-brillante-ficha-tecnica-es-ve',
+    pdfFile:
+      'barnices/duratek-dbmn-barniz-marino-brillante-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Barniz marino brillante fenólico; alta resistencia UV/agua para exteriores y ebanistería náutica.',
@@ -638,7 +644,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'SELLADORES & ADHESIVOS',
     application: '',
     pdfFile:
-      'duratek-dsl-3001-sellador-celulosico-listo-para-usar-ficha-tecnica-es-ve',
+      'barnices/duratek-dsl-3001-sellador-celulosico-listo-para-usar-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Sellador celulósico listo para usar; seca en minutos y se lija fácil para cerrar poro.',
@@ -650,7 +656,8 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'BARNICES Y SELLADORES PARA MADERA',
     type: 'SELLADORES & ADHESIVOS',
     application: '',
-    pdfFile: 'duratek-dcb-adhesivo-pva-cola-blanca-ficha-tecnica-es-ve',
+    pdfFile:
+      'barnices/duratek-dcb-adhesivo-pva-cola-blanca-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Adhesivo PVA base agua ("cola blanca"); transparente al curar y de uso versátil en madera/papel.',
@@ -662,7 +669,8 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'BARNICES Y SELLADORES PARA MADERA',
     type: 'REMOVEDORES',
     application: '',
-    pdfFile: 'duratek-w380-removedor-de-pinturas-gel-ficha-tecnica-es-ve',
+    pdfFile:
+      'barnices/duratek-w380-removedor-de-pinturas-gel-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Removedor en gel/pasta; decapa esmaltes y barnices con acción rápida para restauración.',
@@ -676,7 +684,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'FLUIDOS PARA FRENOS',
     application: 'DOT 3',
-    pdfFile: 'autotek-w1200-liquido-frenos-dot3-ficha-tecnica-es-ve',
+    pdfFile: 'autotek/autotek-w1200-liquido-frenos-dot3-ficha-tecnica-es-ve',
     badges: ['DOT-3'],
     description:
       'DOT-3 Fluido sintético para frenos hidráulicos; brinda punto de ebullición adecuado y protección de sellos.',
@@ -688,7 +696,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'FLUIDOS PARA FRENOS',
     application: 'DOT 4',
-    pdfFile: 'autotek-w1300-liquido-frenos-dot4-ficha-tecnica-es-ve',
+    pdfFile: 'autotek/autotek-w1300-liquido-frenos-dot4-ficha-tecnica-es-ve',
     badges: ['DOT-4'],
     description:
       'DOT-4 Fluido sintético para frenos hidráulicos; mayor resistencia a "vapor lock" y desempeño en ABS/ESP.',
@@ -700,7 +708,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'FLUIDOS PARA FRENOS',
     application: 'DOT 5.1',
-    pdfFile: 'autotek-w1500-liquido-frenos-dot5.1-ficha-tecnica-es-ve',
+    pdfFile: 'autotek/autotek-w1500-liquido-frenos-dot5.1-ficha-tecnica-es-ve',
     badges: ['DOT-5.1'],
     description:
       'DOT-5.1 Fluido sintético para frenos hidráulicos; baja viscosidad a frío y respuesta rápida en uso severo.',
@@ -714,7 +722,8 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'DESENGRASANTES Y LIMPIEZA',
     application: '',
-    pdfFile: 'autotek-w0115-desengrasante-base-agua-ficha-tecnica-es-ve',
+    pdfFile:
+      'autotek/autotek-w0115-desengrasante-base-agua-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Desengrasante base agua multiusos; limpia rápido sin residuos en motores y superficies.',
@@ -726,7 +735,8 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'DESENGRASANTES Y LIMPIEZA',
     application: '',
-    pdfFile: 'autotek-poly-590-desengrasante-dielectrico-ficha-tecnica-es-ve',
+    pdfFile:
+      'autotek/autotek-poly-590-desengrasante-dielectrico-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Desengrasante dieléctrico; evapora rápido y no humedece componentes eléctricos.',
@@ -738,7 +748,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'DESENGRASANTES Y LIMPIEZA',
     application: '',
-    pdfFile: 'autotek-rug-2070-limpiador-textiles-ficha-tecnica-es-ve',
+    pdfFile: 'autotek/autotek-rug-2070-limpiador-textiles-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Limpiador espumoso para textiles; remueve manchas y renueva tapicerías y alfombras.',
@@ -750,7 +760,8 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'DESENGRASANTES Y LIMPIEZA',
     application: '',
-    pdfFile: 'autotek-w321-limpiador-descarbonzante-ficha-tecnica-es-ve',
+    pdfFile:
+      'autotek/autotek-w321-limpiador-descarbonzante-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Limpiador–desengrasante–descarbonizante; remueve barnices y aceite quemado de piezas metálicas.',
@@ -764,7 +775,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'FORMULA MARINA',
     application: '',
-    pdfFile: 'autotek-lw-4000-formula-marina-ficha-tecnica-es-ve',
+    pdfFile: 'autotek/autotek-lw-4000-formula-marina-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Formula marina. Lubricante anticorrosivo multipropósito; desplaza humedad y protege en ambientes salinos.',
@@ -779,7 +790,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'LIQUIDO LIMPIADOR DE INYECTORES',
     application: '',
     pdfFile:
-      'autotek-ultrasonic-2000-limpiador-inyectores-banco-ultrasonido-ficha-tecnica-es-ve',
+      'autotek/autotek-ultrasonic-2000-limpiador-inyectores-banco-ultrasonido-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Líquido para limpieza en banco/ultrasonido; despega lacas y uniformiza el patrón de inyección. Extra-fuerte removedor de carbonilla.',
@@ -791,7 +802,8 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'LIQUIDO LIMPIADOR DE INYECTORES',
     application: '',
-    pdfFile: 'autotek-wf-2000-limpiador-inyectores-aditivo-ficha-tecnica-es-ve',
+    pdfFile:
+      'autotek/autotek-wf-2000-limpiador-inyectores-aditivo-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Limpiador de inyectores concentrado; descarboniza sin desmontar y mejora ralentí/consumo. Incrementa el octanaje.',
@@ -805,7 +817,8 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'REFRIGERANTES',
     application: '',
-    pdfFile: 'autotek-w5050-refrigerante-oat-prediluido-ficha-tecnica-es-ve',
+    pdfFile:
+      'autotek/autotek-w5050-refrigerante-oat-prediluido-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Refrigerante OAT prediluido 50/50; recomendado para cualquier tipo de motor.',
@@ -817,7 +830,8 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'REFRIGERANTES',
     application: '',
-    pdfFile: 'autotek-w1010-refrigerante-oat-prediluido-ficha-tecnica-es-ve',
+    pdfFile:
+      'autotek/autotek-w1010-refrigerante-oat-prediluido-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Refrigerante OAT prediluido listo para usar; larga vida útil y protección contra la oxidación.',
@@ -831,7 +845,8 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'LUBRICANTES',
     application: 'MOTORES GASOLINA',
-    pdfFile: 'autotek-aceite-sae-15w40-sn-semisintetico-ficha-tecnica-ve',
+    pdfFile:
+      'autotek/autotek-aceite-sae-15w40-sn-semisintetico-ficha-tecnica-ve',
     badges: ['SAE 15W-40', 'API SN', 'Semi-sintético'],
     description: 'Aceite para motor gasolina; SAE 15W-40 SN.',
   },
@@ -842,7 +857,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'LUBRICANTES',
     application: 'MOTORES GASOLINA',
-    pdfFile: 'autotek-aceite-sae-15w40-api-sn-mineral-ficha-tecnica-ve',
+    pdfFile: 'autotek/autotek-aceite-sae-15w40-api-sn-mineral-ficha-tecnica-ve',
     badges: ['SAE 15W-40', 'API SN', 'Mineral'],
     description:
       'Aceite mineral multigrado para motor gasolina; SAE 15W-40 API SN.',
@@ -854,7 +869,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'LUBRICANTES',
     application: 'MOTORES GASOLINA',
-    pdfFile: 'autotek-aceite-mineral-sae-20w50-sn-ficha-tecnica-ve',
+    pdfFile: 'autotek/autotek-aceite-mineral-sae-20w50-sn-ficha-tecnica-ve',
     badges: ['SAE 20W-50', 'API SN', 'Mineral'],
     description:
       'Aceite mineral multigrado para motor gasolina; SAE 20W-50 SN.',
@@ -868,7 +883,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'LUBRICANTES',
     application: 'MOTORES DIESEL',
-    pdfFile: 'autotek-aceite-diesel-sae-15w40-ficha-tecnica-ve',
+    pdfFile: 'autotek/autotek-aceite-diesel-sae-15w40-ficha-tecnica-ve',
     badges: ['SAE 15W-40'],
     description:
       'Aceite multigrado para motor diésel; SAE 15W-40. Maneja hollín y sostiene película lubricante bajo carga.',
@@ -880,7 +895,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'LUBRICANTES',
     application: 'MOTORES DIESEL',
-    pdfFile: 'autotek-aceite-diesel-sae-20w50-ficha-tecnica-ve',
+    pdfFile: 'autotek/autotek-aceite-diesel-sae-20w50-ficha-tecnica-ve',
     badges: ['SAE 20W-50'],
     description: 'Aceite para motor diésel; SAE 20W-50. Monogrado.',
   },
@@ -893,7 +908,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'LUBRICANTES',
     application: 'HIDRAULICO AW',
-    pdfFile: 'autotek-aw-22-aceite-hidraulico-ficha-tecnica-es-ve',
+    pdfFile: 'autotek/autotek-aw-22-aceite-hidraulico-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Aceite hidráulico AW-22; cuenta con propiedades antidesgaste, antispumante, antioxidante y demulsificantes.',
@@ -905,7 +920,8 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'LUBRICANTES',
     application: 'HIDRAULICO AW',
-    pdfFile: 'autotek-aw-68-aceite-hidraulico-iso-vg-68-ficha-tecnica-es-ve',
+    pdfFile:
+      'autotek/autotek-aw-68-aceite-hidraulico-iso-vg-68-ficha-tecnica-es-ve',
     badges: [],
     description:
       'Aceite hidráulico AW-68; cuenta con propiedades antidesgaste, antispumante, antioxidante y demulsificantes.',
@@ -919,7 +935,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'LUBRICANTES',
     application: 'TRANSMISIONES',
-    pdfFile: 'autotek-dexron-iii-fluido-atf-ficha-tecnica-es-ve',
+    pdfFile: 'autotek/autotek-dexron-iii-fluido-atf-ficha-tecnica-es-ve',
     badges: ['DEXRON III', 'MERCON FORD', 'COVENIN 899-3'],
     description:
       'Fluido para transmisiones automáticas; cambios suaves y fricción controlada.',
@@ -931,7 +947,8 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'LUBRICANTES',
     application: 'TRANSMISIONES',
-    pdfFile: 'autotek-gl5-aceite-transmision-api-gl5-80w90-ficha-tecnica-es-ve',
+    pdfFile:
+      'autotek/autotek-gl5-aceite-transmision-api-gl5-80w90-ficha-tecnica-es-ve',
     badges: ['API MT-1', 'API GL5', 'MACK GOH', 'mil L-21050', 'COVENIN 987-2'],
     description: 'Aceite para transmisiones manuales;SAE 80W90 / 85W140',
   },
@@ -944,7 +961,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'LUBRICANTES',
     application: 'TRACTORES',
-    pdfFile: 'autotek-lubricante-tractores-ficha-tecnica-ve',
+    pdfFile: 'autotek/autotek-lubricante-tractores-ficha-tecnica-ve',
     badges: [],
     description:
       'Aceite para sistemas hidráulicos de tractores. Mezcla de bases minerales y packing de aditivos de alta calidad.',
@@ -958,7 +975,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'LUBRICANTES',
     application: 'TURBINA',
-    pdfFile: 'autotek-aceite-turbinas-ficha-tecnica-ve',
+    pdfFile: 'autotek/autotek-aceite-turbinas-ficha-tecnica-ve',
     badges: [],
     description:
       'Aceite para cojinetes y turbinas; alta estabilidad oxidativa y térmica.',
@@ -972,7 +989,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'AUTOMOTRIZ',
     type: 'LUBRICANTES',
     application: 'CORTE DE METAL',
-    pdfFile: 'autotek-fluido-soluble-mecanizado-ficha-tecnica-ve',
+    pdfFile: 'autotek/autotek-fluido-soluble-mecanizado-ficha-tecnica-ve',
     badges: [],
     description:
       'Fluido soluble para mecanizado; protege y mejora acabado en metales. Libre de nitritos, fenoles y cloro.',
