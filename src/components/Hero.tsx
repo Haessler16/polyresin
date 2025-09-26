@@ -5,7 +5,7 @@ import { Factory } from 'lucide-react'
 export default function Hero() {
   return (
     <section className='pt-24 bg-gradient-to-br from-green-50 to-white'>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16'>
+      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-14 lg:py-16'>
         <div className='grid lg:grid-cols-2 gap-12 items-center'>
           {/* Content */}
           <motion.div
@@ -26,7 +26,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className='mt-6 text-lg text-gray-600 leading-relaxed'>
+                className='mt-6 text-sm md:text-lg text-gray-600 leading-relaxed'>
                 Desde <b>1975</b>, en{' '}
                 <span className='text-qp-green font-bold'>
                   {' '}
@@ -45,7 +45,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
-                className='mt-4 text-lg text-gray-600 leading-relaxed'>
+                className='mt-4 text-sm md:text-lg text-gray-600 leading-relaxed'>
                 Contamos con ingeniería de formulación y sistemas de control de
                 calidad respaldados por normas específicas nacionales e
                 internacionales.
@@ -55,7 +55,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
-                className='mt-4 text-lg text-gray-600 leading-relaxed'>
+                className='mt-4 text-sm md:text-lg text-gray-600 leading-relaxed'>
                 <strong className='text-qp-green '>Nuestra Misión</strong> es{' '}
                 <b>
                   fabricar y suministrar soluciones químicas confiables que

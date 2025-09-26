@@ -37,7 +37,11 @@ export default function Navbar() {
         <div className='flex justify-between items-center'>
           {/* Logo */}
           <Link href='/' className='flex items-center space-x-2'>
-            <Image src={img} alt='empresa con su nombre' width={140} />
+            <Image
+              src={img}
+              alt='empresa con su nombre'
+              className='w-24 md:w-36'
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -65,7 +69,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className='text-gray-700 hover:text-qp-green p-2 relative'>
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X size={34} /> : <Menu size={34} />}
             </button>
           </div>
         </div>

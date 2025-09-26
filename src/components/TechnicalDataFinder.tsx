@@ -193,7 +193,7 @@ export default function TechnicalDataFinder() {
                 )}s both`,
               }}>
               {/* Product Image */}
-              <div className='relative h-48 bg-gradient-to-br from-green-50 to-green-100'>
+              <div className='hidden md:flex md:relative h-48 bg-gradient-to-br from-green-50 to-green-100'>
                 <div className='absolute inset-0 flex items-center justify-center'>
                   <div className='w-20 h-28 bg-white rounded-lg shadow-lg flex items-center justify-center relative'>
                     <div className='text-center'>
