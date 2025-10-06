@@ -1,8 +1,8 @@
 'use client'
-// import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import Slider, { Settings as SettingsSlick } from 'react-slick'
 import Link from 'next/link'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import {
   Package,
   Footprints,
@@ -14,6 +14,11 @@ import {
 } from 'lucide-react'
 import { businessLines } from '@/lib/data'
 
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+
 const iconMap = {
   bottle: Package,
   footprints: Footprints,
@@ -23,101 +28,6 @@ const iconMap = {
 }
 
 export default function BusinessLines() {
-  interface ArrowProps {
-    className?: string
-    style?: React.CSSProperties
-    onClick?: React.MouseEventHandler<SVGSVGElement>
-  }
-
-  function NextArrow(props: ArrowProps) {
-    const { className, style, onClick } = props
-    return (
-      <ArrowRight
-        size={40}
-        className={className}
-        style={{
-          ...style,
-          display: 'block',
-          background: '#1aa737',
-          borderRadius: '50%',
-          padding: '2px',
-          color: 'white',
-          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-          // marginRight: '10px',
-
-          width: '30px',
-          height: '30px',
-        }}
-        onClick={onClick}
-      />
-    )
-  }
-
-  function PrevArrow(props: ArrowProps) {
-    const { className, style, onClick } = props
-    return (
-      <ArrowLeft
-        size={40}
-        className={className}
-        style={{
-          ...style,
-          display: 'block',
-          background: '#1aa737',
-          borderRadius: '50%',
-          padding: '2px',
-          color: 'white',
-          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-
-          // marginLeft: '10px',
-          width: '30px',
-          height: '30px',
-        }}
-        onClick={onClick}
-      />
-    )
-  }
-
-  const settings: SettingsSlick = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    cssEase: 'ease-in-out',
-    centerPadding: '0px',
-    className: 'flex gap-6',
-    prevArrow: <PrevArrow />,
-    nextArrow: <NextArrow />,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  }
-
   return (
     <section className='py-16 lg:py-12 bg-white'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -135,62 +45,96 @@ export default function BusinessLines() {
           </p>
         </motion.div>
 
-        {/* Carousel Container */}
-        <Slider {...settings}>
-          {businessLines.map((line, index) => {
-            const Icon = iconMap[line.icon as keyof typeof iconMap]
+        {/* Swiper Carousel */}
+        <div className='relative px-12'>
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={24}
+            slidesPerView={1}
+            navigation={{
+              prevEl: '.swiper-button-prev-custom',
+              nextEl: '.swiper-button-next-custom',
+            }}
+            pagination={{
+              clickable: true,
+              el: '.swiper-pagination-custom',
+            }}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 24,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 24,
+              },
+            }}
+            className='business-lines-swiper'>
+            {businessLines.map((line, index) => {
+              const Icon = iconMap[line.icon as keyof typeof iconMap]
 
-            return (
-              <motion.div
-                key={line.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{
-                  scale: 1.05,
-                  transition: { duration: 0.2 },
-                }}
-                className='group px-4'>
-                <div className='relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 overflow-hidden'>
-                  {/* Background gradient */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${line.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
+              return (
+                <SwiperSlide key={line.id}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    whileHover={{
+                      scale: 1.05,
+                      transition: { duration: 0.2 },
+                    }}
+                    className='group h-full'>
+                    <div className='relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 overflow-hidden h-full'>
+                      {/* Background gradient */}
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${line.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
 
-                  {/* Icon */}
-                  <div
-                    className={`w-16 h-16 bg-gradient-to-br ${line.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className='text-white' size={32} />
-                  </div>
+                      {/* Icon */}
+                      <div
+                        className={`w-16 h-16 bg-gradient-to-br ${line.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                        <Icon className='text-white' size={32} />
+                      </div>
 
-                  {/* Content */}
-                  <h3 className='text-xl font-semibold text-gray-900 mb-3 group-hover:text-qp-green transition-colors duration-300'>
-                    {line.title}
-                  </h3>
-                  <p className='text-gray-600 leading-relaxed'>
-                    {line.description}
-                  </p>
+                      {/* Content */}
+                      <h3 className='text-xl font-semibold text-gray-900 mb-3 group-hover:text-qp-green transition-colors duration-300'>
+                        {line.title}
+                      </h3>
+                      <p className='text-gray-600 leading-relaxed'>
+                        {line.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                </SwiperSlide>
+              )
+            })}
+          </Swiper>
 
-                  {/* Hover indicator */}
-                  {/* <div className='absolute bottom-4 right-4 w-8 h-8 bg-qp-green rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300'>
-                    <svg
-                      className='w-4 h-4 text-white'
-                      fill='none'
-                      stroke='currentColor'
-                      viewBox='0 0 24 24'>
-                      <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth={2}
-                        d='M9 5l7 7-7 7'
-                      />
-                    </svg>
-                  </div> */}
-                </div>
-              </motion.div>
-            )
-          })}
-        </Slider>
+          {/* Custom Navigation Buttons */}
+          <button className='swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 z-10 transition-opacity hover:opacity-80'>
+            <div className='flex items-center justify-center w-10 h-10 bg-qp-green rounded-full shadow-lg'>
+              <ArrowLeft className='text-white' size={24} />
+            </div>
+          </button>
+
+          <button className='swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 z-10 transition-opacity hover:opacity-80'>
+            <div className='flex items-center justify-center w-10 h-10 bg-qp-green rounded-full shadow-lg'>
+              <ArrowRight className='text-white' size={24} />
+            </div>
+          </button>
+
+          {/* Custom Pagination */}
+          <div className='swiper-pagination-custom flex justify-center gap-2 mt-8'></div>
+        </div>
 
         {/* CTA Button */}
         <motion.div
@@ -206,6 +150,32 @@ export default function BusinessLines() {
           </Link>
         </motion.div>
       </div>
+
+      <style jsx global>{`
+        .business-lines-swiper {
+          padding-bottom: 40px;
+        }
+
+        .swiper-pagination-custom .swiper-pagination-bullet {
+          width: 8px;
+          height: 8px;
+          background: #d1d5db;
+          opacity: 1;
+          transition: all 0.3s;
+        }
+
+        .swiper-pagination-custom .swiper-pagination-bullet-active {
+          background: #1aa737;
+          width: 32px;
+          border-radius: 4px;
+        }
+
+        .swiper-button-prev-custom.swiper-button-disabled,
+        .swiper-button-next-custom.swiper-button-disabled {
+          opacity: 0.3;
+          cursor: not-allowed;
+        }
+      `}</style>
     </section>
   )
 }

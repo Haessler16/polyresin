@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react'
 import { Search, Download, Filter } from 'lucide-react'
 import { filterData, technicalProducts, Category } from '@/lib/data'
-import { div } from 'framer-motion/client'
 
 export default function TechnicalDataFinder() {
   const [selectedCategory, setSelectedCategory] = useState<Category>()
