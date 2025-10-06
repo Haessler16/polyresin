@@ -1,10 +1,12 @@
 import TechnicalDataFinder from '@/components/TechnicalDataFinder'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { websiteUrl } from '@/constants/metadata'
 
 export const metadata: Metadata = {
-  title: 'Productos - QP Químicas Polyresin',
+  title: 'Buscador de fichas técnicas | Químicas Polyresin Venezuela',
   description:
-    'Explora nuestro catálogo de productos químicos y descarga fichas técnicas.',
+    'Todas las fichas técnicas de lubricantes, químicos automotrices, adhesivos, resinas poliéster, sistemas de poliuretano, barnices y selladores. Proveedor en Venezuela y Colombia.',
+  alternates: { canonical: `${websiteUrl}/productos` },
 }
 
 export default function ProductsPage() {

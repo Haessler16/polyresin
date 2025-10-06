@@ -1,20 +1,13 @@
 'use client'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import {
-  Send,
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-  Building2,
-  Factory,
-} from 'lucide-react'
+import { Send, MapPin, Phone, Mail, Clock, Building2 } from 'lucide-react'
 
 interface FormData {
   name: string
   company: string
   product: string
+  amount: string
   message: string
 }
 
@@ -23,6 +16,7 @@ export default function ContactForm() {
     name: '',
     company: '',
     product: '',
+    amount: '',
     message: '',
   })
   const [errors, setErrors] = useState<Partial<FormData>>({})
@@ -61,7 +55,7 @@ export default function ContactForm() {
     setIsSubmitting(false)
 
     // Reset form
-    setFormData({ name: '', company: '', product: '', message: '' })
+    setFormData({ name: '', company: '', product: '', amount: '', message: '' })
     alert(
       'Mensaje enviado correctamente. Nos pondremos en contacto contigo pronto.',
     )
@@ -97,7 +91,7 @@ export default function ContactForm() {
               className='bg-white rounded-2xl shadow-lg p-8'>
               <div className='space-y-6'>
                 {/* Name Field */}
-                <div>
+                <section>
                   <label
                     htmlFor='name'
                     className='block text-sm font-medium text-gray-700 mb-2'>
@@ -124,10 +118,10 @@ export default function ContactForm() {
                       {errors.name}
                     </motion.p>
                   )}
-                </div>
+                </section>
 
-                {/* Company Field */}
-                <div>
+                {/* Empresa / Cargo Field */}
+                <section>
                   <label
                     htmlFor='company'
                     className='block text-sm font-medium text-gray-700 mb-2'>
@@ -154,10 +148,10 @@ export default function ContactForm() {
                       {errors.company}
                     </motion.p>
                   )}
-                </div>
+                </section>
 
                 {/* Product Interest Field */}
-                <div>
+                <section>
                   <label
                     htmlFor='product'
                     className='block text-sm font-medium text-gray-700 mb-2'>
@@ -185,10 +179,40 @@ export default function ContactForm() {
                       Cementos de contacto
                     </option>
                   </select>
-                </div>
+                </section>
+
+                {/* Amount Field */}
+                <section>
+                  <label
+                    htmlFor='amount'
+                    className='block text-sm font-medium text-gray-700 mb-2'>
+                    Cantidad
+                  </label>
+                  <input
+                    type='text'
+                    id='amount'
+                    name='amount'
+                    value={formData.amount}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 border rounded-lg transition-all duration-200 ${
+                      errors.amount
+                        ? 'border-red-300 focus:ring-red-500 focus:border-red-500'
+                        : 'border-gray-300 focus:ring-qp-green focus:border-qp-green'
+                    }`}
+                    placeholder='Nombre de tu empresa o cargo'
+                  />
+                  {errors.amount && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className='mt-1 text-sm text-red-600'>
+                      {errors.amount}
+                    </motion.p>
+                  )}
+                </section>
 
                 {/* Message Field */}
-                <div>
+                <section>
                   <label
                     htmlFor='message'
                     className='block text-sm font-medium text-gray-700 mb-2'>
@@ -215,7 +239,7 @@ export default function ContactForm() {
                       {errors.message}
                     </motion.p>
                   )}
-                </div>
+                </section>
 
                 {/* Submit Button */}
                 <motion.button

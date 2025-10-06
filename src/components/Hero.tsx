@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import { Factory } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Hero() {
   return (
@@ -82,10 +83,12 @@ export default function Hero() {
                 {/* Placeholder para nueva imagen industrial */}
                 <div className='flex items-center justify-center text-white'>
                   <div className='text-center'>
-                    <img
+                    <Image
                       src='/fabrica_vintage.png'
                       alt='Planta Químicas Polyresin'
-                      className='w-full h-full object-cover'
+                      className='object-cover'
+                      width={575}
+                      height={575}
                       loading='lazy'
                     />
                     <div style={{ display: 'none' }} className='p-8'>

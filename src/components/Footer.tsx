@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 export default function Footer() {
@@ -19,10 +20,12 @@ export default function Footer() {
             <div className='flex items-center space-x-3 mb-6'>
               {/* Logo real - placeholder por ahora */}
               <div className='w-12 h-12 bg-white rounded-lg flex items-center justify-center p-2'>
-                <img
+                <Image
                   src='/logo.jpeg'
                   alt='Químicas Polyresin Logo'
                   className='w-full h-full object-contain'
+                  width={42}
+                  height={42}
                   // onError={(e) => {
                   //   // Fallback al logo actual si no encuentra la imagen
                   //   e.currentTarget.style.display = 'none';

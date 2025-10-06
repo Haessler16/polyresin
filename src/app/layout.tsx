@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   icons: {
     icon: '/logo.jpeg',
   },
+  robots: { index: true, follow: true },
 }
 
 export default function RootLayout({
@@ -22,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='es'>
+    <html lang='es-VE'>
       <head>
         <link
           rel='stylesheet'
