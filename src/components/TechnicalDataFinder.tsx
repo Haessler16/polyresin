@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { Search, Download, Filter } from 'lucide-react'
 import { filterData, technicalProducts, Category } from '@/lib/data'
+import { div } from 'framer-motion/client'
 
 export default function TechnicalDataFinder() {
   const [selectedCategory, setSelectedCategory] = useState<Category>()
@@ -209,10 +210,19 @@ export default function TechnicalDataFinder() {
               </div>
 
               {/* Product Info */}
-              <div className='p-6'>
-                <h3 className='text-lg font-semibold text-gray-900 mb-2 group-hover:text-green-600 transition-colors duration-300'>
-                  {product.name}
-                </h3>
+              <section className='p-6'>
+                <div className='flex justify-between'>
+                  <h3 className='text-lg font-semibold text-gray-900 mb-2 group-hover:text-green-600 transition-colors duration-300 '>
+                    {product.name}{' '}
+                  </h3>
+                  {product.badges.find((text) => text === 'agotado') && (
+                    <div className='bg-red-200 rounded-full h-6 px-2 flex items-center'>
+                      <span className='text-red-800 font-bold text-sm'>
+                        Agotado
+                      </span>
+                    </div>
+                  )}
+                </div>
                 <p className='text-gray-600 text-sm mb-4 leading-relaxed'>
                   {product.description}
                 </p>
@@ -237,13 +247,18 @@ export default function TechnicalDataFinder() {
                   {/* Badges/Insignias */}
                   {product.badges && product.badges.length > 0 && (
                     <div className='flex flex-wrap gap-1 mt-2'>
-                      {product.badges.map((badge, badgeIndex) => (
-                        <span
-                          key={badgeIndex}
-                          className='bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs font-medium'>
-                          {badge}
-                        </span>
-                      ))}
+                      {product.badges.map((badge, badgeIndex) => {
+                        if (badge === 'agotado') {
+                          return null
+                        }
+                        return (
+                          <span
+                            key={badgeIndex}
+                            className='bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs font-medium'>
+                            {badge}
+                          </span>
+                        )
+                      })}
                     </div>
                   )}
                 </div>
@@ -259,7 +274,7 @@ export default function TechnicalDataFinder() {
                     <Download size={18} />
                   </button>
                 </div>
-              </div>
+              </section>
             </div>
           ))}
         </div>

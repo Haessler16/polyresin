@@ -20,7 +20,7 @@ export default function Footer() {
               {/* Logo real - placeholder por ahora */}
               <div className='w-12 h-12 bg-white rounded-lg flex items-center justify-center p-2'>
                 <img
-                  src='/logo.jpg'
+                  src='/logo.jpeg'
                   alt='Químicas Polyresin Logo'
                   className='w-full h-full object-contain'
                   // onError={(e) => {

@@ -181,7 +181,7 @@ export const technicalProducts: TechnicalProduct[] = [
     application: 'UNIVERSAL / MULTIUSO',
     pdfFile:
       'cementos/duratek-d10-adhesivo-policloropreno-universal-ficha-tecnica-es-ve',
-    badges: [],
+    badges: ['agotado'],
     description:
       'Adhesivo de policloropreno universal; alto agarre inicial y secado rápido para muebles y reparaciones.',
   },
@@ -194,7 +194,7 @@ export const technicalProducts: TechnicalProduct[] = [
     application: 'UNIVERSAL / MULTIUSO',
     pdfFile:
       'cementos/duratek-S-350-adhesivo-policloropreno-universal-ficha-tecnica-es-ve',
-    badges: [],
+    badges: ['agotado'],
     description:
       'Adhesivo de policloropreno multiuso; amplio margen de tiempo para posicionar y alinear las piezas antes de unirlas, con gran versatilidad de sustratos.',
   },
@@ -207,7 +207,7 @@ export const technicalProducts: TechnicalProduct[] = [
     application: 'LAMINADOS & MDF',
     pdfFile:
       'cementos/duratek-d20-adhesivo-policloropreno-universal-ficha-tecnica-es-ve',
-    badges: [],
+    badges: ['agotado'],
     description:
       'Adhesivo de policloropreno para laminados/MDF; mayor tiempo abierto para alineación precisa.',
   },
@@ -220,7 +220,7 @@ export const technicalProducts: TechnicalProduct[] = [
     application: 'LAMINADOS & MDF',
     pdfFile:
       'cementos/duratek-d30-adhesivo-policloropreno-universal-ficha-tecnica-es-ve',
-    badges: [],
+    badges: ['agotado'],
     description:
       'Adhesivo de policloropreno alta viscosidad; mejor resistencia térmica en carpintería pesada.',
   },
@@ -233,7 +233,7 @@ export const technicalProducts: TechnicalProduct[] = [
     application: 'LAMINADOS & MDF',
     pdfFile:
       'cementos/duratek-spray-hs-adhesivo-policloropreno-spray-ficha-tecnica-es-ve',
-    badges: [],
+    badges: ['agotado'],
     description:
       'Adhesivo de policloropreno para aplicación a pistola; cobertura uniforme y productividad.',
   },
@@ -246,7 +246,7 @@ export const technicalProducts: TechnicalProduct[] = [
     application: 'LAMINADOS & MDF',
     pdfFile:
       'cementos/duratek-s-1200-adhesivo-policloropreno-solidos-altos-ficha-tecnica-es-ve',
-    badges: [],
+    badges: ['agotado'],
     description:
       'Adhesivo de policloropreno de sólidos altos; amplio tiempo abierto, pegado muy fuerte en laminados especiales.',
   },
@@ -259,7 +259,7 @@ export const technicalProducts: TechnicalProduct[] = [
     application: 'TAPICERIA & ESPUMA',
     pdfFile:
       'cementos/duratek-s-100-adhesivo-policloropreno-felixible-tapiceria-ficha-tecnica-es-ve',
-    badges: [],
+    badges: ['agotado'],
     description:
       'Adhesivo de policloropreno flexible; fraguado rápido en tapicería, espuma, cuero y vinil.',
   },
@@ -272,7 +272,7 @@ export const technicalProducts: TechnicalProduct[] = [
     application: 'CALZADO',
     pdfFile:
       'cementos/duratek-s500-adhesivo-policloropreno-calzado-ficha-tecnica-es-ve',
-    badges: [],
+    badges: ['agotado'],
     description:
       'Adhesivo de policloropreno para calzado; alta adhesión y resistencia a humedad en suelas.',
   },
@@ -285,7 +285,7 @@ export const technicalProducts: TechnicalProduct[] = [
     application: 'CALZADO',
     pdfFile:
       'cementos/duratek-s600-adhesivo-policloropreno-calzado-extra-fuerte-ficha-tecnica-es-ve',
-    badges: [],
+    badges: ['agotado'],
     description:
       'Adhesivo de policloropreno extra-fuerte; montado de suelas de cuero/goma para trabajo pesado.',
   },
@@ -300,7 +300,7 @@ export const technicalProducts: TechnicalProduct[] = [
     application: '',
     pdfFile:
       'cementos/sutex-240-adhesivo-caucho-natural-translucido-ficha-tecnica-es-ve',
-    badges: [],
+    badges: ['agotado'],
     description:
       'Adhesivo de caucho natural translúcido; tack inmediato y reposicionable para artes gráficas.',
   },
@@ -328,7 +328,7 @@ export const technicalProducts: TechnicalProduct[] = [
     application: '',
     pdfFile:
       'cementos/sutex-tpu-630-adhesivo-pu-reactivable-monocomponente-ficha-tecnica-es-ve',
-    badges: [],
+    badges: ['agotado'],
     description:
       'Adhesivo PU reactivable; monocomponente, opción de endurecedor para curado veloz en calzado técnico.',
   },
@@ -406,7 +406,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'RESINAS DE POLIESTER',
     type: 'ISOFTALICA NPG',
     application: '',
-    pdfFile: 'poliester/poly-3809-resina-poliester-iso-npg-ficha-tecnica-es-ve',
+    pdfFile: 'poliester/poly-3809-resina-poliester-iso-npg',
     badges: [],
     description:
       'Resina ISO-NPG; mayor resistencia química para FRP de alto desempeño y tanques.',
@@ -418,7 +418,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'RESINAS DE POLIESTER',
     type: 'AUXILIARES',
     application: '',
-    pdfFile: 'poliester/poly-7010-solvente-lavapoliester-ficha-tecnica-es-ve',
+    pdfFile: 'poliester/poly-7010-solvente-lavapoliester',
     badges: [],
     description:
       'Solvente lavapoliéster; reduce viscosidad y limpia pistolas/herramientas.',
@@ -433,7 +433,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'CALZADO DE SEGURIDAD',
     application: 'COMPACTO',
     pdfFile:
-      'poliuretano/polyresin-p340-m902-sistema-pu-compacto-suela-seguridad-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-p340-m902-sistema-pu-compacto-suela-seguridad',
     badges: [],
     description:
       'Sistema compacto para suela de seguridad; desmolde rápido y alta dureza.',
@@ -446,7 +446,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'CALZADO DE SEGURIDAD',
     application: 'COMPACTO',
     pdfFile:
-      'poliuretano/polyresin-p340-m902s-sistema-pu-compacto-suela-seguridad-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-p340-m902s-sistema-pu-compacto-suela-segurida',
     badges: [],
     description:
       'Sistema compacto para suela de seguridad; optimizado en fluidez/proporción para inyección estable.',
@@ -459,7 +459,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'CALZADO DE SEGURIDAD',
     application: 'COMPACTO',
     pdfFile:
-      'poliuretano/polyresin-p340-m903s-sistema-pu-compacto-suela-seguridad-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-p340-m903s-sistema-pu-compacto-suela-segurida',
     badges: [],
     description:
       'Sistema compacto para suela de seguridad; formulado para ciclos cortos en producción.',
@@ -472,7 +472,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'CALZADO DE SEGURIDAD',
     application: 'EXPANSO',
     pdfFile:
-      'poliuretano/polyresin-p340-m856-sistema-pu-expanso-suela-seguridad-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-p340-m856-sistema-pu-expanso-suela-seguridad',
     badges: [],
     description:
       'Sistema expanso lineal para suela/entresuela de seguridad; baja densidad y buen rebote.',
@@ -485,7 +485,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'CALZADO DE SEGURIDAD',
     application: 'EXPANSO',
     pdfFile:
-      'poliuretano/polyresin-p340-m855s-sistema-pu-expanso-suela-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-p340-m855s-sistema-pu-expanso-suela-ficha-tec',
     badges: [],
     description:
       'Sistema expanso lineal para suela/entresuela; ligero, de gran amortiguación y buen rebote para confort prolongado.',
@@ -500,7 +500,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'CALZADO DAMA',
     application: '',
     pdfFile:
-      'poliuretano/polyresin-p367-m134-4318-sistema-pu-microcelular-suela-dama-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-p367-m134-4318-sistema-pu-microcelular-suela',
     badges: [],
     description:
       'Sistema microcelular para suela dama; ultraligero y de acabado fino.',
@@ -513,7 +513,7 @@ export const technicalProducts: TechnicalProduct[] = [
     type: 'CALZADO DAMA',
     application: '',
     pdfFile:
-      'poliuretano/polyresin-p367-m1005-4320-sistema-pu-microcelular-suela-dama-ficha-tecnica-es-ve',
+      'poliuretano/polyresin-p367-m1005-4320-sistema-pu-microcelular-suela-dama',
     badges: [],
     description: 'Sistema microcelular para suela dama; ligero y acabado fino.',
   },
@@ -524,8 +524,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'SISTEMAS DE POLIURETANO',
     type: 'CALZADO CASUAL',
     application: '',
-    pdfFile:
-      'poliuretano/polyresin-p353-m1004-4320-sistema-pu-suela-casual-ficha-tecnica-es-ve',
+    pdfFile: 'poliuretano/polyresin-p353-m1004-4320-sistema-pu-suela-casual',
     badges: [],
     description:
       'Sistema lineal monodensidad para suela casual; proceso simple y balance confort/dureza.',
@@ -537,8 +536,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'SISTEMAS DE POLIURETANO',
     type: 'PLANTILLAS',
     application: '',
-    pdfFile:
-      'poliuretano/polyresin-p4352-4320-sistema-pu-espuma-flexible-plantillas-ficha-tecnica-es-ve',
+    pdfFile: 'poliuretano/polyresin-p4352-4320-sistema-pu-espuma-plantillas',
     badges: [],
     description:
       'Sistema de espuma flexible para plantillas; gran amortiguación y resiliencia.',
@@ -550,8 +548,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'SISTEMAS DE POLIURETANO',
     type: 'PLANTILLAS',
     application: '',
-    pdfFile:
-      'poliuretano/polyresin-p4354-4320-sistema-pu-espuma-flexible-plantillas-entresuelas-ficha-tecnica-es-ve',
+    pdfFile: 'poliuretano/polyresin-p4354-4320-sistema-pu-espuma-plantillas',
     badges: [],
     description:
       'Sistema de espuma flexible para plantillas entresuelas; confort prolongado en uso diario.',
@@ -563,8 +560,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'SISTEMAS DE POLIURETANO',
     type: 'ASIENTOS',
     application: '',
-    pdfFile:
-      'poliuretano/polyresin-p4354-4318-sistema-pu-espuma-asientos-ficha-tecnica-es-ve',
+    pdfFile: 'poliuretano/polyresin-p4354-4318-sistema-pu-espuma-asientos',
     badges: [],
     description:
       'Sistema HR (alta resiliencia) para sillines/asientos; confort y recuperación rápida.',
@@ -576,8 +572,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'SISTEMAS DE POLIURETANO',
     type: 'PREPOLIMEROS DE FORMULACION',
     application: '',
-    pdfFile:
-      'poliuretano/polyresin-prepolimero-4320-isocianato-para-formulacion-ficha-tecnica-es-ve',
+    pdfFile: 'poliuretano/polyresin-prepolimero-4320-isocianato-para-form',
     badges: [],
     description:
       'Prepolímero isocianato para formulación; base de sistemas compactos/expansos.',
@@ -589,8 +584,7 @@ export const technicalProducts: TechnicalProduct[] = [
     category: 'SISTEMAS DE POLIURETANO',
     type: 'PREPOLIMEROS DE FORMULACION',
     application: '',
-    pdfFile:
-      'poliuretano/polyresin-prepolimero-4318-isocianato-para-formulacion-ficha-tecnica-es-ve',
+    pdfFile: 'poliuretano/polyresin-prepolimero-4318-isocianato-para-form',
     badges: [],
     description:
       'Prepolímero isocianato para formulación (suela dama); %NCO y viscosidad controlados.',
@@ -606,7 +600,7 @@ export const technicalProducts: TechnicalProduct[] = [
     application: 'NATURAL',
     pdfFile:
       'barnices/duratek-dbnb-barniz-natural-brillante-ficha-tecnica-es-ve',
-    badges: [],
+    badges: ['agotado'],
     description:
       'Barniz natural brillante alquídico; realza la veta y protege interiores con acabado espejo.',
   },
@@ -619,7 +613,7 @@ export const technicalProducts: TechnicalProduct[] = [
     application: 'NATURAL',
     pdfFile:
       'barnices/duratek-dbsr-barniz-natural-brillante-secado-rapido-ficha-tecnica-es-ve',
-    badges: [],
+    badges: ['agotado'],
     description:
       'Barniz natural brillante alquídico; secado rápido para repinte ágil en líneas productivas.',
   },
@@ -632,7 +626,7 @@ export const technicalProducts: TechnicalProduct[] = [
     application: 'MARINO',
     pdfFile:
       'barnices/duratek-dbmn-barniz-marino-brillante-ficha-tecnica-es-ve',
-    badges: [],
+    badges: ['agotado'],
     description:
       'Barniz marino brillante fenólico; alta resistencia UV/agua para exteriores y ebanistería náutica.',
   },
@@ -645,7 +639,7 @@ export const technicalProducts: TechnicalProduct[] = [
     application: '',
     pdfFile:
       'barnices/duratek-dsl-3001-sellador-celulosico-listo-para-usar-ficha-tecnica-es-ve',
-    badges: [],
+    badges: ['agotado'],
     description:
       'Sellador celulósico listo para usar; seca en minutos y se lija fácil para cerrar poro.',
   },
@@ -658,7 +652,7 @@ export const technicalProducts: TechnicalProduct[] = [
     application: '',
     pdfFile:
       'barnices/duratek-dcb-adhesivo-pva-cola-blanca-ficha-tecnica-es-ve',
-    badges: [],
+    badges: ['agotado'],
     description:
       'Adhesivo PVA base agua ("cola blanca"); transparente al curar y de uso versátil en madera/papel.',
   },
@@ -671,7 +665,7 @@ export const technicalProducts: TechnicalProduct[] = [
     application: '',
     pdfFile:
       'barnices/duratek-w380-removedor-de-pinturas-gel-ficha-tecnica-es-ve',
-    badges: [],
+    badges: ['agotado'],
     description:
       'Removedor en gel/pasta; decapa esmaltes y barnices con acción rápida para restauración.',
   },
