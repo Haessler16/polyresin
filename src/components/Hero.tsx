@@ -1,9 +1,30 @@
 'use client'
 import { motion } from 'framer-motion'
-import { Factory } from 'lucide-react'
+// import { Factory } from 'lucide-react'
 import Image from 'next/image'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules'
+// import entrada from '/image/entrada.jpeg'
+// import fabrica from '/image/fabrica.jpeg'
+// import person from '/image/person.jpeg'
+// import planta from '/image/planta.jpeg'
+// import potes from '/image/potes.jpeg'
+
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/effect-fade'
 
 export default function Hero() {
+  const images = [
+    { src: '/image/planta.jpeg', alt: 'Planta Industrial' },
+    { src: '/image/entrada.jpeg', alt: 'Entrada QuÃ­micas Polyresin' },
+    { src: '/image/potes.jpeg', alt: 'Productos QuÃ­micas Polyresin' },
+    { src: '/image/fabrica.jpeg', alt: 'FÃ¡brica QuÃ­micas Polyresin' },
+    { src: '/image/person.jpeg', alt: 'Equipo QuÃ­micas Polyresin' },
+  ]
+
   return (
     <section className='pt-24 bg-gradient-to-br from-green-50 to-white'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-14 lg:py-16'>
@@ -72,40 +93,49 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Image */}
+          {/* Image Carousel */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className='relative'>
             <div className='relative overflow-hidden rounded-2xl shadow-2xl'>
-              <div className='aspect-w-16 aspect-h-12 bg-gradient-to-br from-qp-green to-qp-green-dark'>
-                {/* Placeholder para nueva imagen industrial */}
-                <div className='flex items-center justify-center text-white'>
-                  <div className='text-center'>
-                    <Image
-                      src='/fabrica_vintage.png'
-                      alt='Planta Químicas Polyresin'
-                      className='object-cover'
-                      width={575}
-                      height={575}
-                      loading='lazy'
-                    />
-                    <div style={{ display: 'none' }} className='p-8'>
-                      <Factory size={64} className='mx-auto mb-4 opacity-80' />
-                      <p className='text-lg font-medium'>
-                        Planta Industrial QP
-                      </p>
-                      <p className='text-sm opacity-80'>
-                        Desde 1975 proporcionando soluciones químicas
-                      </p>
+              <Swiper
+                modules={[Navigation, Pagination, Autoplay, EffectFade]}
+                effect='fade'
+                fadeEffect={{ crossFade: true }}
+                spaceBetween={0}
+                slidesPerView={1}
+                pagination={{
+                  clickable: true,
+                  el: '.hero-swiper-pagination',
+                }}
+                autoplay={{
+                  delay: 4000,
+                  disableOnInteraction: false,
+                }}
+                loop={true}
+                className='hero-swiper aspect-w-16 aspect-h-12'>
+                {images.map((image, index) => (
+                  <SwiperSlide key={index}>
+                    <div className='relative w-full h-[400px] lg:h-[500px]'>
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        className='object-cover'
+                        priority={index === 0}
+                      />
                     </div>
-                  </div>
-                </div>
-              </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+
+              {/* Custom Pagination */}
+              <div className='hero-swiper-pagination absolute bottom-4 left-0 right-0 z-10 flex justify-center gap-2'></div>
 
               {/* Overlay decorativo */}
-              <div className='absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-3'>
+              <div className='absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-3 z-10'>
                 <p className='text-qp-green text-sm font-medium'>Desde 1975</p>
                 <p className='text-gray-700 text-xs'>
                   proporcionando soluciones químicas
@@ -119,6 +149,27 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
+
+      <style jsx global>{`
+        .hero-swiper {
+          border-radius: 1rem;
+        }
+
+        .hero-swiper-pagination .swiper-pagination-bullet {
+          width: 10px;
+          height: 10px;
+          background: white;
+          opacity: 0.7;
+          transition: all 0.3s;
+        }
+
+        .hero-swiper-pagination .swiper-pagination-bullet-active {
+          background: #1aa737;
+          opacity: 1;
+          width: 32px;
+          border-radius: 5px;
+        }
+      `}</style>
     </section>
   )
 }

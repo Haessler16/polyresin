@@ -21,6 +21,9 @@ export default function ContactForm() {
   })
   const [errors, setErrors] = useState<Partial<FormData>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<
+    'idle' | 'success' | 'error'
+  >('idle')
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -50,15 +53,42 @@ export default function ContactForm() {
     if (!validateForm()) return
 
     setIsSubmitting(true)
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    setIsSubmitting(false)
+    setSubmitStatus('idle')
 
-    // Reset form
-    setFormData({ name: '', company: '', product: '', amount: '', message: '' })
-    alert(
-      'Mensaje enviado correctamente. Nos pondremos en contacto contigo pronto.',
-    )
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        // Reset form
+        setFormData({
+          name: '',
+          company: '',
+          product: '',
+          amount: '',
+          message: '',
+        })
+
+        // Reset success message after 5 seconds
+        setTimeout(() => setSubmitStatus('idle'), 5000)
+      } else {
+        setSubmitStatus('error')
+        console.error('Error al enviar el formulario:', data.error)
+      }
+    } catch (error) {
+      setSubmitStatus('error')
+      console.error('Error al enviar el formulario:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -89,6 +119,32 @@ export default function ContactForm() {
             <form
               onSubmit={handleSubmit}
               className='bg-white rounded-2xl shadow-lg p-8'>
+              {/* Success Message */}
+              {submitStatus === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className='mb-6 p-4 bg-green-50 border border-green-200 rounded-lg'>
+                  <p className='text-green-700 font-medium'>
+                    ¡Mensaje enviado correctamente! Nos pondremos en contacto
+                    contigo pronto.
+                  </p>
+                </motion.div>
+              )}
+
+              {/* Error Message */}
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className='mb-6 p-4 bg-red-50 border border-red-200 rounded-lg'>
+                  <p className='text-red-700 font-medium'>
+                    Hubo un error al enviar el mensaje. Por favor, intenta
+                    nuevamente.
+                  </p>
+                </motion.div>
+              )}
+
               <div className='space-y-6'>
                 {/* Name Field */}
                 <section>
@@ -162,7 +218,7 @@ export default function ContactForm() {
                     name='product'
                     value={formData.product}
                     onChange={handleChange}
-                    className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-qp-green focus:border-qp-green transition-all duration-200'>
+                    className='w-full px-4 py-3 border border-gray-300 text-black rounded-lg focus:ring-qp-green focus:border-qp-green transition-all duration-200'>
                     <option value=''>Selecciona un producto</option>
                     <option value='resinas-poliester'>
                       Resinas de poliéster
@@ -194,21 +250,9 @@ export default function ContactForm() {
                     name='amount'
                     value={formData.amount}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg transition-all duration-200 ${
-                      errors.amount
-                        ? 'border-red-300 focus:ring-red-500 focus:border-red-500'
-                        : 'border-gray-300 focus:ring-qp-green focus:border-qp-green'
-                    }`}
-                    placeholder='Nombre de tu empresa o cargo'
+                    className='w-full px-4 py-3 border border-gray-300 text-black rounded-lg focus:ring-qp-green focus:border-qp-green transition-all duration-200'
+                    placeholder='Ej: 100 kg, 50 litros, etc.'
                   />
-                  {errors.amount && (
-                    <motion.p
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className='mt-1 text-sm text-red-600'>
-                      {errors.amount}
-                    </motion.p>
-                  )}
                 </section>
 
                 {/* Message Field */}
@@ -224,7 +268,7 @@ export default function ContactForm() {
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
-                    className={`w-full px-4 py-3 border rounded-lg transition-all duration-200 resize-none ${
+                    className={`w-full px-4 py-3 border rounded-lg transition-all text-black duration-200 resize-none ${
                       errors.message
                         ? 'border-red-300 focus:ring-red-500 focus:border-red-500'
                         : 'border-gray-300 focus:ring-qp-green focus:border-qp-green'
@@ -245,8 +289,8 @@ export default function ContactForm() {
                 <motion.button
                   type='submit'
                   disabled={isSubmitting}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                   className={`w-full py-3 px-6 rounded-lg font-medium transition-all duration-300 flex items-center justify-center space-x-2 ${
                     isSubmitting
                       ? 'bg-gray-400 cursor-not-allowed'
@@ -284,9 +328,6 @@ export default function ContactForm() {
 
               <div className='space-y-6'>
                 <div>
-                  {/* <h4 className='font-medium text-gray-900 mb-2'>
-                    Corporativo:
-                  </h4> */}
                   <p className='text-gray-600 flex items-start'>
                     <MapPin
                       className='mr-2 text-qp-green mt-1 flex-shrink-0'
@@ -297,17 +338,6 @@ export default function ContactForm() {
                     Postal 1209, Estado Miranda
                   </p>
                 </div>
-
-                {/* <div>
-                  <h4 className='font-medium text-gray-900 mb-2'>Planta:</h4>
-                  <p className='text-gray-600 flex items-start'>
-                    <Factory
-                      className='mr-2 text-qp-green mt-1 flex-shrink-0'
-                      size={16}
-                    />
-                    Ocumare del Tuy
-                  </p>
-                </div> */}
               </div>
             </div>
 
@@ -320,12 +350,14 @@ export default function ContactForm() {
               <div className='space-y-4'>
                 <div className='flex items-center'>
                   <Phone className='mr-3 text-qp-green' size={20} />
-                  <span className='text-gray-600'>+58 000 000 0000</span>
+                  <span className='text-gray-600'>+58 424.237.8867</span>
                 </div>
 
                 <div className='flex items-center'>
                   <Mail className='mr-3 text-qp-green' size={20} />
-                  <span className='text-gray-600'>ventas@polyresin.com</span>
+                  <span className='text-gray-600'>
+                    ventas@quimicaspolyresin.com
+                  </span>
                 </div>
 
                 <div className='flex items-center'>
@@ -334,31 +366,6 @@ export default function ContactForm() {
                 </div>
               </div>
             </div>
-
-            {/* Products Showcase */}
-            {/* <div className='bg-gradient-to-br from-qp-green to-qp-green-dark rounded-2xl shadow-lg p-8 text-white'> */}
-            {/* <h3 className='text-xl font-semibold mb-4'>
-                Brindamos a nuestros clientes
-              </h3>
-              <p className='text-white/90 mb-6'>
-                Productos químicos de la más alta calidad con certificaciones
-                internacionales
-              </p> */}
-
-            {/* Product boxes visualization */}
-            {/* <div className='grid grid-cols-3 gap-3'>
-                {Array.from({ length: 6 }).map((_, i) => (
-                  <div
-                    key={i}
-                    className='bg-white/20 backdrop-blur-sm rounded-lg p-3 text-center'>
-                    <div className='w-8 h-8 bg-white/30 rounded mx-auto mb-2 flex items-center justify-center'>
-                      <span className='text-xs font-bold'>QP</span>
-                    </div>
-                    <div className='text-xs opacity-80'>Producto {i + 1}</div>
-                  </div>
-                ))}
-              </div> */}
-            {/* </div> */}
           </motion.div>
         </div>
       </div>
