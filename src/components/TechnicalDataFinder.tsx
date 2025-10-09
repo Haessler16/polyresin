@@ -72,23 +72,43 @@ export default function TechnicalDataFinder() {
 
   // Función para filtrar productos
   const getFilteredProducts = () => {
-    return technicalProducts.filter((product) => {
-      let matches = true
+    return technicalProducts
+      .filter((product) => {
+        let matches = true
 
-      if (selectedCategory && product.category !== selectedCategory) {
-        matches = false
-      }
+        if (selectedCategory && product.category !== selectedCategory) {
+          matches = false
+        }
 
-      if (selectedType && product.type !== selectedType) {
-        matches = false
-      }
+        if (selectedType && product.type !== selectedType) {
+          matches = false
+        }
 
-      if (selectedApplication && product.application !== selectedApplication) {
-        matches = false
-      }
+        if (
+          selectedApplication &&
+          product.application !== selectedApplication
+        ) {
+          matches = false
+        }
 
-      return matches
-    })
+        return matches
+      })
+      .sort((a, b) => {
+        // Verificar si el producto está agotado
+        const aIsAgotado = a.badges.includes('agotado')
+        const bIsAgotado = b.badges.includes('agotado')
+
+        // Si a no está agotado y b sí, a va primero (return -1)
+        if (!aIsAgotado && bIsAgotado) {
+          return -1
+        }
+        // Si a está agotado y b no, b va primero (return 1)
+        if (aIsAgotado && !bIsAgotado) {
+          return 1
+        }
+        // Si ambos están en el mismo estado, mantener el orden original
+        return 0
+      })
   }
 
   const filteredProducts = getFilteredProducts()
