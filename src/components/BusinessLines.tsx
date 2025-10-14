@@ -29,7 +29,7 @@ const iconMap = {
 
 export default function BusinessLines() {
   return (
-    <section className='py-16 lg:py-12 bg-white'>
+    <section className='py-3 lg:py-5 bg-white'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -46,7 +46,7 @@ export default function BusinessLines() {
         </motion.div>
 
         {/* Swiper Carousel */}
-        <div className='relative px-12'>
+        <section className='rrelative px-4 sm:px-8 lg:px-12'>
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={24}
@@ -134,7 +134,7 @@ export default function BusinessLines() {
 
           {/* Custom Pagination */}
           <div className='swiper-pagination-custom flex justify-center gap-2 mt-8'></div>
-        </div>
+        </section>
 
         {/* CTA Button */}
         <motion.div
@@ -154,6 +154,12 @@ export default function BusinessLines() {
       <style jsx global>{`
         .business-lines-swiper {
           padding-bottom: 40px;
+          width: 100%;
+        }
+
+        .swiper-pagination-custom {
+          position: relative !important;
+          bottom: 0 !important;
         }
 
         .swiper-pagination-custom .swiper-pagination-bullet {
@@ -168,6 +174,19 @@ export default function BusinessLines() {
           background: #1aa737;
           width: 32px;
           border-radius: 4px;
+        }
+
+        .swiper-button-prev-custom,
+        .swiper-button-next-custom {
+          display: none;
+        }
+
+        /* Mostrar navegación solo en desktop */
+        @media (min-width: 768px) {
+          .swiper-button-prev-custom,
+          .swiper-button-next-custom {
+            display: flex;
+          }
         }
 
         .swiper-button-prev-custom.swiper-button-disabled,

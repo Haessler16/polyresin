@@ -19,28 +19,28 @@ import 'swiper/css/effect-fade'
 export default function Hero() {
   const images = [
     { src: '/image/planta.jpeg', alt: 'Planta Industrial' },
-    { src: '/image/entrada.jpeg', alt: 'Entrada QuÃ­micas Polyresin' },
-    { src: '/image/potes.jpeg', alt: 'Productos QuÃ­micas Polyresin' },
-    { src: '/image/fabrica.jpeg', alt: 'FÃ¡brica QuÃ­micas Polyresin' },
-    { src: '/image/person.jpeg', alt: 'Equipo QuÃ­micas Polyresin' },
+    { src: '/image/entrada.jpeg', alt: 'Entrada Químicas Polyresin' },
+    { src: '/image/potes.jpeg', alt: 'Productos Químicas Polyresin' },
+    { src: '/image/fabrica.jpeg', alt: 'Fábrica Químicas Polyresin' },
+    { src: '/image/person.jpeg', alt: 'Equipo Químicas Polyresin' },
   ]
 
   return (
-    <section className='pt-24 bg-gradient-to-br from-green-50 to-white'>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-14 lg:py-16'>
-        <div className='grid lg:grid-cols-2 gap-12 items-center'>
+    <section className='pt-20 lg:pt-36 bg-gradient-to-br from-green-50 to-white'>
+      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16'>
+        <div className='flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center'>
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className='space-y-8'>
+            className='space-y-6 lg:space-y-8 order-2 lg:order-1'>
             <div>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className='text-4xl lg:text-5xl font-bold text-gray-900 leading-tight'>
+                className='text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight'>
                 Quiénes <span className='text-qp-green'>somos</span>
               </motion.h1>
 
@@ -98,7 +98,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className='relative'>
+            className='relative order-1 lg:order-2 w-full'>
             <div className='relative overflow-hidden rounded-2xl shadow-2xl'>
               <Swiper
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
@@ -118,7 +118,7 @@ export default function Hero() {
                 className='hero-swiper aspect-w-16 aspect-h-12'>
                 {images.map((image, index) => (
                   <SwiperSlide key={index}>
-                    <div className='relative w-full h-[400px] lg:h-[500px]'>
+                    <div className='relative w-full h-[280px] sm:h-[350px] lg:h-[500px]'>
                       <Image
                         src={image.src}
                         alt={image.alt}
@@ -135,12 +135,14 @@ export default function Hero() {
               <div className='hero-swiper-pagination absolute bottom-4 left-0 right-0 z-10 flex justify-center gap-2'></div>
 
               {/* Overlay decorativo */}
-              <div className='absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-3 z-10'>
-                <p className='text-qp-green text-sm font-medium'>Desde 1975</p>
+              <section className='absolute top-2 right-2 sm:top-4 sm:right-4 bg-white/90 backdrop-blur-sm rounded-lg p-2 sm:p-3 z-10'>
+                <p className='text-qp-green text-xs sm:text-sm font-medium'>
+                  Desde 1975
+                </p>
                 <p className='text-gray-700 text-xs'>
                   proporcionando soluciones químicas
                 </p>
-              </div>
+              </section>
             </div>
 
             {/* Elementos decorativos */}

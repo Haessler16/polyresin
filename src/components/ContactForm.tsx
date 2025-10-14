@@ -1,10 +1,12 @@
 'use client'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Send, MapPin, Phone, Mail, Clock, Building2 } from 'lucide-react'
+import { Send, MapPin, Phone, Mail, Building2 } from 'lucide-react'
 
 interface FormData {
+  email: string
   name: string
+  phone: string
   company: string
   product: string
   amount: string
@@ -13,7 +15,9 @@ interface FormData {
 
 export default function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
+    email: '',
     name: '',
+    phone: '',
     company: '',
     product: '',
     amount: '',
@@ -39,6 +43,7 @@ export default function ContactForm() {
 
   const validateForm = () => {
     const newErrors: Partial<FormData> = {}
+    if (!formData.email.trim()) newErrors.name = 'El email es requerido'
     if (!formData.name.trim()) newErrors.name = 'El nombre es requerido'
     if (!formData.company.trim())
       newErrors.company = 'La empresa/cargo es requerido'
@@ -70,7 +75,9 @@ export default function ContactForm() {
         setSubmitStatus('success')
         // Reset form
         setFormData({
+          email: '',
           name: '',
+          phone: '',
           company: '',
           product: '',
           amount: '',
@@ -149,6 +156,35 @@ export default function ContactForm() {
                 {/* Name Field */}
                 <section>
                   <label
+                    htmlFor='email'
+                    className='block text-sm font-medium text-gray-700 mb-2'>
+                    Email *
+                  </label>
+                  <input
+                    type='email'
+                    id='email'
+                    name='email'
+                    value={formData.email}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 border text-black rounded-lg transition-all duration-200 ${
+                      errors.email
+                        ? 'border-red-300 focus:ring-red-500 focus:border-red-500'
+                        : 'border-gray-300 focus:ring-qp-green focus:border-qp-green'
+                    }`}
+                    placeholder='Ej: miemail@gmail.com'
+                  />
+                  {errors.email && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className='mt-1 text-sm text-red-600'>
+                      {errors.email}
+                    </motion.p>
+                  )}
+                </section>
+                {/* Name Field */}
+                <section>
+                  <label
                     htmlFor='name'
                     className='block text-sm font-medium text-gray-700 mb-2'>
                     Nombre *
@@ -159,7 +195,7 @@ export default function ContactForm() {
                     name='name'
                     value={formData.name}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg transition-all duration-200 ${
+                    className={`w-full px-4 text-black py-3 border rounded-lg transition-all duration-200 ${
                       errors.name
                         ? 'border-red-300 focus:ring-red-500 focus:border-red-500'
                         : 'border-gray-300 focus:ring-qp-green focus:border-qp-green'
@@ -172,6 +208,35 @@ export default function ContactForm() {
                       animate={{ opacity: 1, y: 0 }}
                       className='mt-1 text-sm text-red-600'>
                       {errors.name}
+                    </motion.p>
+                  )}
+                </section>
+                {/* Phone Field */}
+                <section>
+                  <label
+                    htmlFor='phone'
+                    className='block text-sm font-medium text-gray-700 mb-2'>
+                    Telefono
+                  </label>
+                  <input
+                    type='number'
+                    id='phone'
+                    name='phone'
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 text-black border rounded-lg transition-all duration-200 ${
+                      errors.phone
+                        ? 'border-red-300 focus:ring-red-500 focus:border-red-500'
+                        : 'border-gray-300 focus:ring-qp-green focus:border-qp-green'
+                    }`}
+                    placeholder='Ej: 04241234567'
+                  />
+                  {errors.phone && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className='mt-1 text-sm text-red-600'>
+                      {errors.phone}
                     </motion.p>
                   )}
                 </section>
@@ -342,12 +407,12 @@ export default function ContactForm() {
             </div>
 
             {/* Contact Details */}
-            <div className='bg-white rounded-2xl shadow-lg p-8'>
+            <section className='bg-white rounded-2xl shadow-lg p-8'>
               <h3 className='text-xl font-semibold text-gray-900 mb-6'>
                 Información de contacto
               </h3>
 
-              <div className='space-y-4'>
+              <section className='space-y-4'>
                 <div className='flex items-center'>
                   <Phone className='mr-3 text-qp-green' size={20} />
                   <span className='text-gray-600'>+58 424.237.8867</span>
@@ -360,12 +425,12 @@ export default function ContactForm() {
                   </span>
                 </div>
 
-                <div className='flex items-center'>
+                {/* <div className='flex items-center'>
                   <Clock className='mr-3 text-qp-green' size={20} />
                   <span className='text-gray-600'>L-V 8:00 - 17:00</span>
-                </div>
-              </div>
-            </div>
+                </div> */}
+              </section>
+            </section>
           </motion.div>
         </div>
       </div>

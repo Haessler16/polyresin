@@ -5,10 +5,11 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: Request) {
   try {
-    const { name, company, product, amount, message } = await request.json()
+    const { name, company, product, amount, message, phone, email } =
+      await request.json()
 
     // Validación básica
-    if (!name || !company || !message) {
+    if (!name || !company || !message || !email) {
       return NextResponse.json(
         { error: 'Faltan campos requeridos' },
         { status: 400 },
@@ -17,10 +18,10 @@ export async function POST(request: Request) {
 
     // Enviar el email usando Resend
     const { data, error } = await resend.emails.send({
-      from: 'Químicas Polyresin <onboarding@quimicaspolyresin.com>', // Dominio de prueba de Resend
+      from: 'Químicas Polyresin <onboarding@resend.dev>', // Dominio de prueba de Resend
       // Para producción usa: from: 'Contacto Web <noreply@tudominio.com>',
       to: ['ventas@quimicaspolyresin.com'],
-      subject: `Nueva consulta de ${name} - ${company}`,
+      subject: `Nueva consulta de ${name} - ${email}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="background: linear-gradient(135deg, #1aa737 0%, #15892d 100%); color: white; padding: 30px; text-align: center;">
@@ -35,10 +36,26 @@ export async function POST(request: Request) {
               <table style="width: 100%; border-collapse: collapse;">
                 <tr>
                   <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb;">
+                    <strong style="color: #374151;">Email:</strong>
+                  </td>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb; color: #6b7280;">
+                    ${email}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb;">
                     <strong style="color: #374151;">Nombre:</strong>
                   </td>
                   <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb; color: #6b7280;">
                     ${name}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb;">
+                    <strong style="color: #374151;">Telefono:</strong>
+                  </td>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb; color: #6b7280;">
+                    ${phone}
                   </td>
                 </tr>
                 <tr>
@@ -118,7 +135,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     })
 
     if (error) {
-      console.error('Error de Resend:', error)
+      console.log('Error de Resend:', error)
       return NextResponse.json(
         { error: 'Error al enviar el email' },
         { status: 500 },
