@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react'
 import { Search, Download, Filter } from 'lucide-react'
 import { filterData, technicalProducts, Category } from '@/lib/data'
+import { MaquilaSection } from './MaquilaBanner'
+// import productos from '../../public/image/productos.png'
 
 export default function TechnicalDataFinder() {
   const [selectedCategory, setSelectedCategory] = useState<Category>()
@@ -116,7 +118,8 @@ export default function TechnicalDataFinder() {
   return (
     <section className='py-16 lg:py-24 bg-gradient-to-br from-green-50 to-white'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='text-center mb-12'>
+        <MaquilaSection />
+        <section className='text-center mb-12'>
           <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>
             Buscador de <span className='text-green-600'>fichas técnicas</span>
           </h2>
@@ -124,7 +127,7 @@ export default function TechnicalDataFinder() {
             Encuentra la información técnica de nuestros productos de manera
             rápida y sencilla
           </p>
-        </div>
+        </section>
 
         {/* Search Filters */}
         <div className='bg-gray-50 rounded-2xl p-8 mb-12'>

@@ -46,7 +46,7 @@ export default function BusinessLines() {
         </motion.div>
 
         {/* Swiper Carousel */}
-        <section className='rrelative px-4 sm:px-8 lg:px-12'>
+        <section className='relative px-4 sm:px-8 lg:px-12'>
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={24}

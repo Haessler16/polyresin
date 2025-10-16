@@ -4,11 +4,6 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules'
-// import entrada from '/image/entrada.jpeg'
-// import fabrica from '/image/fabrica.jpeg'
-// import person from '/image/person.jpeg'
-// import planta from '/image/planta.jpeg'
-// import potes from '/image/potes.jpeg'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -26,8 +21,8 @@ export default function Hero() {
   ]
 
   return (
-    <section className='pt-20 lg:pt-36 bg-gradient-to-br from-green-50 to-white'>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16'>
+    <section className='pt-28 lg:pt-36 bg-gradient-to-br from-green-50 to-white'>
+      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-10'>
         <div className='flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center'>
           {/* Content */}
           <motion.div
