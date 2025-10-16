@@ -3,39 +3,36 @@ import Image from 'next/image'
 
 export function MaquilaSection() {
   return (
-    <section className=' lg:pt-8 bg-gradient-to-br from-green-50 to-white'>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='bg-white rounded-2xl shadow-lg border-2 border-green-600 p-6 lg:p-8'>
-          <div className='flex flex-col lg:flex-row items-center gap-4 lg:gap-8'>
-            {/* Icono/Logo */}
-            <section className='flex-shrink-0'>
-              <div className='w-14 h-14 lg:w-20 lg:h-20 bg-white border-2 border-green-600 rounded-xl flex items-center justify-center'>
-                <span className='text-green-600 text-2xl font-bold'>GP</span>
-              </div>
-            </section>
-
+    <section className='bg-gradient-to-br from-green-50 to-white'>
+      <div className='max-w-3xl mx-auto px-4 sm:px-6 lg:px-8'>
+        <div className='bg-white rounded-2xl shadow-lg border-2 border-green-600 p-4 lg:p-6'>
+          <h2 className='text-xl lg:text-3xl font-bold text-gray-900 mb-2 lg:mb-0 text-center'>
+            Servicio de{' '}
+            <span className='text-green-600'>maquila automotriz</span>
+          </h2>
+          <div className='flex flex-row items-end gap-1 lg:gap-4'>
             {/* Contenido de texto */}
-            <section className='flex-1 text-center lg:text-left'>
-              <h2 className='text-xl lg:text-3xl font-bold text-gray-900 mb-3'>
-                Servicio de{' '}
-                <span className='text-green-600'>maquila automotriz</span>
-              </h2>
-              <p className='text-gray-700 text-sm lg:text-lg leading-relaxed mb-2'>
-                Batching, private label y soporte de llidad y cumplimiento.
+            <section className='flex-1 text-left'>
+              <p className=' text-gray-700 text-sm lg:text-base leading-relaxed mb-3'>
+                Batching, private label y soporte técnico integral en:
               </p>
-              <p className='text-gray-700 text-sm lg:text-lg leading-relaxed'>
-                refrigerantes, fluído para frenos, liquido de inyectores,
-                desengrasantes y limpeza y mas.
-              </p>
+
+              {/* Lista para desktop - bullet points */}
+              <ul className=' text-gray-700 text-sm lg:text-base space-y-1 ml-4'>
+                <li className='list-disc'>Refrigerantes.</li>
+                <li className='list-disc'>Fluido para frenos.</li>
+                <li className='list-disc'>Líquido para inyectores.</li>
+                <li className='list-disc'>Desengrasantes, limpieza y más.</li>
+              </ul>
             </section>
 
-            {/* Imagen de productos */}
+            {/* Imagen de productos - más grande en desktop */}
             <div className='flex-shrink-0'>
-              <div className='w-28 h-28 lg:w-40 lg:h-40 relative'>
+              <div className='w-32 h-32 lg:w-40 lg:h-40 relative'>
                 <Image
                   src='/image/productos.png'
                   alt='Productos automotrices'
-                  className='object-cover'
+                  className='object-contain'
                   fill
                   priority
                 />
