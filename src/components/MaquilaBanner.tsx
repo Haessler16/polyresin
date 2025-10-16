@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export function MaquilaSection() {
   return (
-    <section className='pb-12 pt-0 lg:pb-16 lg:pt-8 bg-gradient-to-br from-green-50 to-white'>
+    <section className=' lg:pt-8 bg-gradient-to-br from-green-50 to-white'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='bg-white rounded-2xl shadow-lg border-2 border-green-600 p-6 lg:p-8'>
           <div className='flex flex-col lg:flex-row items-center gap-4 lg:gap-8'>
